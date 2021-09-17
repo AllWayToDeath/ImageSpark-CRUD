@@ -1,0 +1,25 @@
+2021/09/15 13:58:37 [notice] 1#1: using the "epoll" event method
+2021/09/15 13:58:37 [notice] 1#1: nginx/1.21.3
+2021/09/15 13:58:37 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/15 13:58:37 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/15 13:58:37 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/15 13:58:37 [notice] 1#1: start worker processes
+2021/09/15 13:58:37 [notice] 1#1: start worker process 23
+2021/09/15 13:58:37 [notice] 1#1: start worker process 24
+2021/09/15 13:58:37 [notice] 1#1: start worker process 25
+2021/09/15 13:58:37 [notice] 1#1: start worker process 26
+2021/09/15 14:07:37 [error] 23#23: *1 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/"
+2021/09/16 07:00:07 [error] 23#23: *132 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/"
+2021/09/16 07:03:36 [error] 23#23: *140 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/"
+2021/09/16 07:06:17 [error] 23#23: *146 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/"
+2021/09/16 07:21:39 [error] 23#23: *168 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/"
+2021/09/16 11:07:51 [error] 23#23: *301 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/create.php?createUserLogin=Login&createUserFname=&createUserLname=&createUserBdayD=01&createUserBdayM=01&createUserBdayY=2010&createUserActive=on&createUserSubmit="
+2021/09/16 11:07:52 [error] 23#23: *301 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/create.php?createUserLogin=Login&createUserFname=&createUserLname=&createUserBdayD=01&createUserBdayM=01&createUserBdayY=2010&createUserActive=on&createUserSubmit="
+2021/09/16 11:07:52 [error] 23#23: *301 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/create.php?createUserLogin=Login&createUserFname=&createUserLname=&createUserBdayD=01&createUserBdayM=01&createUserBdayY=2010&createUserActive=on&createUserSubmit="
+2021/09/17 07:19:49 [error] 25#25: *677 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/index.php"
+2021/09/17 07:29:38 [error] 23#23: *711 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/index.php"
+2021/09/17 07:29:39 [error] 23#23: *711 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/index.php"
+2021/09/17 07:29:42 [error] 23#23: *711 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/index.php"
+2021/09/17 07:29:42 [error] 23#23: *711 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/index.php"
+2021/09/17 10:06:26 [error] 25#25: *908 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/create.php?createUserLogin=ForDelete&createUserFname=&createUserLname=Delete&createUserBdayD=3&createUserBdayM=1&createUserBdayY=&createUserSubmit="
+2021/09/17 10:50:17 [error] 25#25: *987 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.24.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", host: "crud.local:8080", referrer: "http://crud.local:8080/index.php"

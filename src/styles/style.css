@@ -1,0 +1,29 @@
+body{
+    background-color: #222222;
+}
+p{
+    color: lightgrey;
+}
+p1{
+    color: white;
+}
+p2{
+    font-size: 40px;
+    color: white;
+}
+
+paa{
+    color: white;
+}
+input{
+    background-color: #111111;
+    color: white;
+}
+::placeholder {
+    color: gray;
+}
+
+button{
+    background-color: #111111;
+    color: whitesmoke;
+}

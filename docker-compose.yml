@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8080:80"
+      - "443:443"
+    volumes:
+      - ./hosts:/etc/nginx/conf.d
+      - ./src:/var/www
+      - ./logs/nginx:/var/log/nginx
+    links:
+      - php
+  php:
+    build: ./images/php
+    volumes:
+      - ./src:/var/www
