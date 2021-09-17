@@ -32,7 +32,7 @@
 
 <body>
     
-    <form id="form1" action="create.php" method="POST"></form>
+    <form id="form1" action="edit.php" method="POST"></form>
 
     <table>
     <tr>
@@ -104,7 +104,7 @@
                     <p><?=$user["active"];?></p>
                 </td>
                 <td>
-                    <a id="edit" href="update.php?id=<?=$id?>">
+                    <a id="edit" href="edit.php?id=<?=$id?>">
                         Edit</a>
                     <a id="delete" href="delete.php?id=<?=$id?>">
                         Delete</a>

@@ -28,6 +28,33 @@ $user_data = array(
 
 $error_message;
 
+if(isset($_GET["editUserSubmit"]))
+{
+    $userData = getUserDataFromForm();
+
+    $id = null;
+    if(!isset($_GET["id"]))
+    {
+        $id = $_GET["editUserSubmit"];
+    }
+    $_GET["id"] = $id;
+
+    saveWithValidation($userData, $id, "Data is not correct!");
+
+}
+
+function getUserDataFromForm()
+{
+    $user_data = array(
+        "login"     => smartGet("editUserLogin")
+        ,"fname"    => smartGet("editUserFname")
+        ,"lname"    => smartGet("editUserLname")
+        ,"bday"     => getBday("editUser")
+        ,"active"   => getActiveStatus(smartGet("editUserActive"))
+    );
+    return $user_data;
+}
+
 if(isset($_GET["createUserSubmit"]))
 {
     //rep
