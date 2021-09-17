@@ -2,18 +2,6 @@
 
 require_once "functions.php";
 
-/*
-Валидация
-*/
-
-const TESTUSER  = array(
-    "login"     => "prototype"
-    ,"fname"    => "Alex"
-    ,"lname"    => "Mercer"
-    ,"bday"     => "1983"
-    ,"active"   => "Yes"
-);
-
 $user_data = array(
     "login"     => ""
     ,"fname"    => ""
@@ -37,10 +25,10 @@ if(isset($_GET["editUserSubmit"]))
     {
         $id = $_GET["editUserSubmit"];
     }
-    $_GET["id"] = $id;
+    if(null != $id)
+        $_GET["id"] = $id;
 
     saveWithValidation($userData, $id, "Data is not correct!");
-
 }
 
 function getUserDataFromForm()
@@ -53,53 +41,6 @@ function getUserDataFromForm()
         ,"active"   => getActiveStatus(smartGet("editUserActive"))
     );
     return $user_data;
-}
-
-if(isset($_GET["createUserSubmit"]))
-{
-    //rep
-    $user_data = array(
-        "login"     => smartGet("createUserLogin")
-        ,"fname"    => smartGet("createUserFname")
-        ,"lname"    => smartGet("createUserLname")
-        ,"bday"     => getBday("createUser")
-        ,"active"   => getActiveStatus(smartGet("createUserActive"))
-    );
-
-    //$error_message = "Data is not correct!";
-
-    saveWithValidation($user_data, null, "Data is not correct!");
-
-    /*
-    if(isComplete($user_data))
-    {
-        $error_message = "";
-        saveUser($user_data);
-        header("Location: index.php");
-    }
-    */
-}
-
-if(isset($_GET["updateUserSubmit"]))
-{
-    //rep
-    $userData = array(
-        "login"     => smartGet("updateUserLogin")
-        ,"fname"    => smartGet("updateUserFname")
-        ,"lname"    => smartGet("updateUserLname")
-        ,"bday"     => getBday("updateUser")
-        ,"active"   => getActiveStatus(smartGet("updateUserActive"))
-    );
-
-    $id = $_GET["updateUserSubmit"];
-    $_GET["id"] = $id;
-
-    saveWithValidation($userData, $id, "Data is not correct!");
-
-    /*
-    saveUser($userData, $id);
-    header("Location: index.php");
-    */
 }
 
 function isComplete($user_data)

@@ -3,6 +3,7 @@ require_once "save.php";
 
 $title = "Create";
 $buttonSaveName = "Create";
+$userID = null;
 
 if(isset($_GET["id"]))
 {
@@ -10,6 +11,7 @@ if(isset($_GET["id"]))
     $checked = getCheckedStatus($userData["active"]);
     $title = "Edit";
     $buttonSaveName = "Save";
+    $userID = $_GET["id"];
 }
 
 ?>
@@ -35,7 +37,7 @@ if(isset($_GET["id"]))
         </label>
         
         <br>
-        <button id="addUser" name="editUserSubmit" type="submit" value="<?=$_GET["id"]?>" ><?=$buttonSaveName?></button>
+        <button id="addUser" name="editUserSubmit" type="submit" value="<?=$userID?>" ><?=$buttonSaveName?></button>
         <button id="cancel" type="submit" form="backForm" >Back</button>
     </form>
     <p><? printErrors() ?></p>
