@@ -1,8 +1,5 @@
 <?php
 
-const SAVEPATH  = "./data/users/";
-const IDINFONAME    = "idinfo.txt";
-
 function addError(string $errMsg)
 {
     $_POST["errorPool"] [] = $errMsg;
@@ -17,19 +14,6 @@ function printErrors()
     foreach($_POST["errorPool"] as $error)
     {
         echo $error;
-    }
-}
-
-function saveWithValidation($userData, $id, $errMsg)
-{
-    if(isComplete($userData))
-    {
-        saveUser($userData, $id);
-        header("Location: index.php");
-    }
-    else
-    {
-        addError($errMsg);
     }
 }
 
@@ -48,35 +32,6 @@ function isFullness($userData)
     return $fullness;
 }
 
-function saveUser($user, $id = null)
-{
-    $json_user = json_encode($user);
-
-    if(null == $id)
-    {
-        $next_id = 1 + getLastJsonID();
-    }
-    else
-    {
-        $next_id = $id;
-    }
-
-    
-    $full_path = SAVEPATH . "$next_id.json";
-    file_put_contents(SAVEPATH.IDINFONAME, $next_id);
-    file_put_contents($full_path, $json_user);
-}
-
-function loadUser($path = SAVEPATH, $id)
-{
-    if (!is_dir($path))
-        return null;
-
-    $file_name = SAVEPATH . $id . ".json";
-    $raw_result = file_get_contents($file_name);
-    $result = json_decode($raw_result, true);
-    return $result;
-}
 
 function isJSON($path)
 {
@@ -91,7 +46,7 @@ function isJSON($path)
     return $is_json;
 }
 
-function getLastJsonID($path = SAVEPATH)
+function getLastJsonID($path = SAVEPATHUSER)
 {
     $path .= IDINFONAME;
     if (!file_exists($path)) {
@@ -102,10 +57,44 @@ function getLastJsonID($path = SAVEPATH)
     return $last_id;
 }
 
-function createIdInfo($path = SAVEPATH)
+function createIdInfo($path = SAVEPATHUSER)
 {
     $last_id = 0;
-    $full_path = SAVEPATH . IDINFONAME;
+    $full_path = SAVEPATHUSER . IDINFONAME;
     var_dump($full_path);
     file_put_contents($full_path, $last_id);
+}
+
+function isComplete($user_data)
+{
+    $complete = true;
+
+    foreach($user_data as $key => $ud)
+    {
+        if(is_array($ud))
+        {
+            if(!isComplete($ud))
+            {
+                $complete = false;
+                break;
+            }
+        }
+        if("" == $ud)
+        {
+            $complete = false;
+            break;
+        }
+    }
+    return $complete;
+}
+
+function smartGet(string $id)
+{
+    $value = $_GET[$id];
+
+    if(null == $value)
+    {
+        $value = "";
+    }
+    return $value;
 }

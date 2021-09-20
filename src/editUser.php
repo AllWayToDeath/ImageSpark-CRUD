@@ -7,7 +7,7 @@ $userID = null;
 
 if(isset($_GET["id"]))
 {
-    $userData = loadUser(SAVEPATH, $_GET["id"]);
+    $userData = loadUser(SAVEPATHUSER, $_GET["id"]);
     $checked = getCheckedStatus($userData["active"]);
     $title = "Edit";
     $buttonSaveName = "Save";
@@ -17,7 +17,7 @@ if(isset($_GET["id"]))
 ?>
 <html>
 <head>
-    <title>Pseudo-<?=$title?> user</title>
+    <title><?=$title?> user</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>

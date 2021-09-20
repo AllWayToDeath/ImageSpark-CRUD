@@ -1,17 +1,17 @@
 <?php
-require_once "functions.php";
+require_once "save.php";
 $fileName = $_GET["id"].".json";
-$successDelete = unlink(SAVEPATH.$fileName);
+$successDelete = unlink(SAVEPATHUSER.$fileName);
 
 if($successDelete)
 {
-    header("Location: index.php");
+    header("Location: users.php");
 }
 ?>
 
 <html>
 <head>
-    <title>Pseudo-Delete user</title>
+    <title>Delete user</title>
     <link rel="stylesheet" href="styles/style.css">
     <style>
         a{

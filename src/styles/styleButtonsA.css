@@ -1,0 +1,13 @@
+a#add{
+    height:32px;
+    width:32px;
+}
+a#edit{
+    color: #bbeebb;
+}
+a#delete{
+    color: #eebbbb;
+}
+a#back{
+    color: #edf57f;
+}
