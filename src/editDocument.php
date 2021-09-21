@@ -16,7 +16,8 @@ if(isset($_GET["id"]))
 <html>
 <head>
     <title><?=$title?> document</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/styleButtonsA.css">
     <style>
         td#req{
             text-align: left;

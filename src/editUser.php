@@ -17,8 +17,8 @@ if(isset($_GET["id"]))
 <html>
 <head>
     <title><?=$title?> user</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/styleButtonsA.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/styleButtonsA.css">
 </head>
 <body>
     <form method="GET" action="">
