@@ -8,5 +8,10 @@
             "name": "Fret",
             "email": "k@imagespark.ru"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "ObjectlyGame\\":"ObjectlyGame/"
+        }
+    }
 }
