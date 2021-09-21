@@ -65,13 +65,7 @@
 
             <?php
                 require_once "save.php";
-
-                function deleteExtensionJSON(string $file)
-                {
-                    //analog 'str_replace'
-                    $len = strlen($file);
-                    return substr($file, 0, $len-5);
-                }
+                require_once "functions.php";
 
                 foreach(scandir(SAVEPATHUSER) as $file_json)
                 {
@@ -79,7 +73,7 @@
                         continue;
 
                     $id = deleteExtensionJSON($file_json);
-                    $user = loadUser(SAVEPATHUSER, $id);
+                    $user = loadUser($id);
             ?>
 
             <tr>
@@ -101,7 +95,7 @@
                 <td>
                     <a id="edit" href="/edit/user?id=<?=$id?>">
                         Edit</a>
-                    <a id="delete" href="deleteUser.php?id=<?=$id?>">
+                    <a id="delete" href="/delete/user?id=<?=$id?>">
                         Delete</a>
                 </td>
             </tr>

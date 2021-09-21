@@ -7,13 +7,11 @@ $documentID = null;
 
 if(isset($_GET["id"]))
 {
-    $documentData = loadDataFromJSON(SAVEPATHDOCUMENT, $_GET["id"]);
-    //$checked = getCheckedStatus($documentData["active"]);
+    $documentData = loadDocument($_GET["id"]);
     $title = "Edit";
     $buttonSaveName = "Save";
     $documentID = $_GET["id"];
 }
-
 ?>
 <html>
 <head>

@@ -5,21 +5,5 @@ $successDelete = unlink(SAVEPATHUSER.$fileName);
 
 if($successDelete)
 {
-    header("Location: users.php");
+    header("Location: /users");
 }
-?>
-
-<html>
-<head>
-    <title>Delete user</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <style>
-        a{
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <a href="index.php">No Delete</a>
-</body>
-</html>

@@ -5,17 +5,14 @@ $title = "Create";
 $buttonSaveName = "Create";
 $userID = null;
 
-var_dump($_GET);
-
 if(isset($_GET["id"]))
 {
-    $userData = loadUser(SAVEPATHUSER, $_GET["id"]);
+    $userData = loadUser($_GET["id"]);
     $checked = getCheckedStatus($userData["active"]);
     $title = "Edit";
     $buttonSaveName = "Save";
     $userID = $_GET["id"];
 }
-
 ?>
 <html>
 <head>

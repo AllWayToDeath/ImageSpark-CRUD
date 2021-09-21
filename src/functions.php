@@ -32,7 +32,6 @@ function isFullness($userData)
     return $fullness;
 }
 
-
 function isJSON($path)
 {
     if (is_dir($path))
@@ -97,4 +96,11 @@ function smartGet(string $id)
         $value = "";
     }
     return $value;
+}
+
+function deleteExtensionJSON(string $file)
+{
+    //analog 'str_replace'
+    $len = strlen($file);
+    return substr($file, 0, $len-5);
 }

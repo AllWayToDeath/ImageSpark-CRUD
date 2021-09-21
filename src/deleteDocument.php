@@ -5,5 +5,5 @@ $successDelete = unlink(SAVEPATHDOCUMENT.$fileName);
 
 if($successDelete)
 {
-    header("Location: documents.php");
+    header("Location: /documents");
 }
