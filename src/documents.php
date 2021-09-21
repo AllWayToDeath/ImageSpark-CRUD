@@ -114,7 +114,7 @@
                 </td>
 
                 <td>
-                    <a id="edit" href="editDocument.php?id=<?=$id?>">
+                    <a id="edit" href="/edit/document?id=<?=$id?>">
                         Edit</a>
                     <a id="delete" href="deleteDocument.php?id=<?=$id?>">
                         Delete</a>
@@ -128,6 +128,6 @@
         </td>
     </tr>
     </table>
-    <a id="back" href="engine.php?/menu">To main page</a>
+    <a id="back" href="/menu">To main page</a>
 </body>
 </html>

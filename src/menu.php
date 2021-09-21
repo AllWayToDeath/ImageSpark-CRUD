@@ -21,12 +21,12 @@
     <table id="menu">
         <tr>
             <td>
-                <a href="engine.php?/users">Users</a>
+                <a href="/users">Users</a>
             </td>
         </tr>
         <tr>
             <td>
-                <a href="engine.php?/documents">Documents</a>
+                <a href="/documents">Documents</a>
             </td>
         </tr>
     </table>

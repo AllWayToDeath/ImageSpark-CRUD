@@ -5,6 +5,8 @@ $title = "Create";
 $buttonSaveName = "Create";
 $userID = null;
 
+var_dump($_GET);
+
 if(isset($_GET["id"]))
 {
     $userData = loadUser(SAVEPATHUSER, $_GET["id"]);
@@ -19,9 +21,9 @@ if(isset($_GET["id"]))
 <head>
     <title><?=$title?> user</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/styleButtonsA.css">
 </head>
 <body>
-    <form id="backForm" method="POST" action="index.php"></form>
     <form method="GET" action="">
         <input type="text" name="editUserLogin" value="<?=$userData["login"]?>" placeholder="Login"><br>
         <input type="text" name="editUserFname" value="<?=$userData["fname"]?>" placeholder="1-st Name"><br>
@@ -38,7 +40,8 @@ if(isset($_GET["id"]))
         
         <br>
         <button id="addUser" name="editUserSubmit" type="submit" value="<?=$userID?>" ><?=$buttonSaveName?></button>
-        <button id="cancel" type="submit" form="backForm" >Back</button>
+        <a id="back" href="/users">Back</a>
+
     </form>
     <p><? printErrors() ?></p>
 </body>

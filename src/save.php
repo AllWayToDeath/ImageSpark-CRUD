@@ -85,7 +85,7 @@ function saveUserWithValidation($userData, $id, $errMsg)
     if(isComplete($userData))
     {
         saveUser($userData, $id);
-        header("Location: users.php");
+        header("Location: /users");
     }
     else
     {
@@ -217,7 +217,7 @@ function saveDocumentWithValidation($documentData, $id, $errMsg = "Error!")
     if(isComplete($documentData))
     {
         saveDocument($documentData, $id);
-        header("Location: documents.php");
+        header("Location: /documents");
     }
     else
     {

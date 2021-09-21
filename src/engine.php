@@ -1,24 +1,35 @@
 <?php
 
-$routes = array(
-    "/menu"             => "menu.php"
-    ,"/users"           => "users.php"
-    ,"/documents"       => "documents.php"
-    ,"/edit/user"       => "editUser.php"
-    ,"/edit/Document"   => "editDocument.php"
-);
-$tmpArr = array();
-parse_str($_SERVER['QUERY_STRING'], $_GET);
-parse_str($_SERVER['QUERY_STRING'], $tmpArr);
-$path = array_key_first($tmpArr);
+require_once "routes.php";
 
-var_dump($path);
-
-foreach($routes as $outerWay => $innerWay)
+//var_dump("Engine/Get $_GET");
+//die();
+function getPath()
 {
-    //parse_str($_SERVER['QUERY_STRING'], $_GET);
+    $tmpArr = array();
+    parse_str($_SERVER['REQUEST_URI'], $tmpArr);
+    $path = array_key_first($tmpArr);
+    //unset($tmpArr);
+
+    //delete ?
+    $idQ = strpos($path, "?");
+    if($idQ > 0)
+        $path = substr($path, 0, $idQ);
+    
+    return $path;
+}
+
+//parse_str($_SERVER['QUERY_STRING'], $_GET);
+
+$path = getPath();
+//var_dump("path = ".$path);
+$notFound = true;
+
+foreach(getRoutes() as $outerWay => $innerWay)
+{
     if($outerWay == $path)
     {
+        $notFound = false;
         require_once $innerWay;
     }
 }
@@ -47,8 +58,8 @@ foreach($routes as $outerWay => $innerWay)
         require_once $innerWay;
     }
 }
+*/
 if($notFound)
 {
-    //require_once "notFound.php";
+    require_once "notFound.php";
 }
-*/

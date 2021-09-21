@@ -12,6 +12,6 @@
     </style>
 </head>
 <body>
-    <a href="engine.php?/menu">404</a>    
+    <a href="/menu">404</a>    
 </body>
 </html>

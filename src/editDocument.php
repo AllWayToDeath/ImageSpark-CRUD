@@ -82,7 +82,7 @@ if(isset($_GET["id"]))
         
         <tr>
             <td><button id="add" name="editDocumentSubmit" type="submit" value="<?=$documentID?>" ><?=$buttonSaveName?></button></td>
-            <td><a href="documents.php">Back</a></td>
+            <td><a href="/documents">Back</a></td>
         </tr>
     </form>
     </table>

@@ -27,7 +27,7 @@
 
 <body>
     
-    <form id="form1" action="edit.php" method="POST"></form>
+    <form id="form1" action="/edit/user" method="POST"></form>
 
     <table>
     <tr>
@@ -99,7 +99,7 @@
                     <p><?=$user["active"];?></p>
                 </td>
                 <td>
-                    <a id="edit" href="engine.php?/edit/user&id=<?=$id?>">
+                    <a id="edit" href="/edit/user?id=<?=$id?>">
                         Edit</a>
                     <a id="delete" href="deleteUser.php?id=<?=$id?>">
                         Delete</a>
@@ -113,6 +113,6 @@
         </td>
     </tr>
     </table>
-    <a id="back" href="engine.php?/menu">To main page</a>
+    <a id="back" href="/menu">To main page</a>
 </body>
 </html>
