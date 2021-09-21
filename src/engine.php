@@ -1,7 +1,12 @@
 <?php
 
-require_once "routes.php";
+require_once "router.php";
 
+$router = Router::getInstance();
+$router->run();
+
+
+/*
 //$path = stristr($_SERVER['REQUEST_URI'], '?', true);
 function getPath()
 {
@@ -33,3 +38,4 @@ if($notFound)
 {
     require_once "notFound.php";
 }
+*/
