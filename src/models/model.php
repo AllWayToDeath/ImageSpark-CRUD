@@ -67,13 +67,18 @@ class Model
         return $dataList;
     }
 
+    // Bug!: В потомках вызывается этот же метод, но с родительским путем
+    /*
+    Все дело в self. Метод вызывается без изменений, 
+    т.к. в дочерних классах данный метод не переопределяется
+    */
     public static function deleteByID($id)
     {
         if(null == $id)
             return false;
 
         $fileName = $id.".json";
-        $successDelete = unlink(SAVEPATHDOCUMENT.$fileName);
+        $successDelete = unlink(self::SAVEPATH.$fileName);
 
         return $successDelete;    
     }

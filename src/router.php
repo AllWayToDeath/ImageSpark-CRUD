@@ -6,18 +6,6 @@ require_once "controllers/userController.php";
 
 class Router extends Singleton
 {
-    /*
-    protected $routes = array(
-        "/menu"             => "menu.php"
-        ,"/users"           => "users.php"
-        ,"/edit/user"       => "editUser.php"
-        ,"/delete/user"     => "deleteUser.php"
-        ,"/documents"       => "documents.php"
-        ,"/edit/document"   => "editDocument.php"
-        ,"/delete/document" => "deleteDocument.php"
-    );
-    */
-
     protected $routes = array(
         "/menu"             => [
                                 "className" => "Controller",
@@ -74,17 +62,14 @@ class Router extends Singleton
                 $notFound = false;
                 $func = (string)$innerWay["method"];
 
-                //var_dump($func);
-
                 $controller = new $innerWay["className"];
                 $controller->$func();//В строку отдельную
-
-                //require_once "notFound.php";//$innerWay;
             }
         }
         if($notFound)
         {
             //$controller = new Controller;
+            //$controller->menu();
             require_once "notFound.php";
         }
     }
