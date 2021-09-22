@@ -73,7 +73,7 @@ class Router extends Singleton
                 $notFound = false;
 
                 $controller = new $innerWay["className"];
-                $controller->$innerWay["method"];
+                $controller->$innerWay["method"]();//В строку отдельную
 
                 //require_once "notFound.php";//$innerWay;
             }
@@ -90,24 +90,3 @@ class Router extends Singleton
         return $_GET[$name];
     }
 }
-/*
-class UserModel{
-    public static getall()
-    {
-        //scandir
-        $user1 = new UserModel();
-        $user2 = new UserModel();
-
-        $userlist = [$user1, $user2]
-        return $userlist;
-    }
-}
-
-class UserController extends Controller
-{
-    public function list()
-    {
-        $userlist = UserModel::getall();
-    }
-}
-*/
