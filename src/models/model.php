@@ -66,4 +66,15 @@ class Model
         }
         return $dataList;
     }
+
+    public static function deleteByID($id)
+    {
+        if(null == $id)
+            return false;
+
+        $fileName = $id.".json";
+        $successDelete = unlink(SAVEPATHDOCUMENT.$fileName);
+
+        return $successDelete;    
+    }
 }

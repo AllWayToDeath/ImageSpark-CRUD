@@ -23,6 +23,6 @@ class UserController extends Controller
 
     public function delete()
     {
-
+        UserModel::deleteByID($_GET["id"]);
     }
 }

@@ -2,6 +2,7 @@
 
 require_once "singleton.php";
 require_once "controllers/controller.php";
+require_once "controllers/userController.php";
 
 class Router extends Singleton
 {
@@ -71,9 +72,12 @@ class Router extends Singleton
             if($outerWay == $path)
             {
                 $notFound = false;
+                $func = (string)$innerWay["method"];
+
+                //var_dump($func);
 
                 $controller = new $innerWay["className"];
-                $controller->$innerWay["method"]();//В строку отдельную
+                $controller->$func();//В строку отдельную
 
                 //require_once "notFound.php";//$innerWay;
             }
