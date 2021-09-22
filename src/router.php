@@ -3,49 +3,49 @@
 require_once "singleton.php";
 require_once "controllers/controller.php";
 
-/*
-
-Два варианта реализации:
-
-1.
-Из роутера сделать таблицу с тремя значениями:
-Внешний путь (/edit/user)
-Внутренний путь (editUser.php)
-Контроллер отвечающий за это (UserController)
-- Контроллер делается все сразу
-
-2.
-В роутере меняем внутренний путь на контроллер
-Передаем внешний путь в контроллер, который определяет дальнейшие действия
-- Дважды парсить одну ти ту же строку
-
-*/
-
 class Router extends Singleton
 {
     /*
-    Здесь нужно заменить переходы на страницы на переходы на контроллеры
-    Однако как передавать контроллерам план действий (удаление, редактирование..)
-    И как тогда нам понимать это? Большой switch?
+    protected $routes = array(
+        "/menu"             => "menu.php"
+        ,"/users"           => "users.php"
+        ,"/edit/user"       => "editUser.php"
+        ,"/delete/user"     => "deleteUser.php"
+        ,"/documents"       => "documents.php"
+        ,"/edit/document"   => "editDocument.php"
+        ,"/delete/document" => "deleteDocument.php"
+    );
     */
-    // protected $routes = array(
-    //     "/menu"             => "menu.php"
-    //     ,"/users"           => "users.php"
-    //     ,"/edit/user"       => "editUser.php"
-    //     ,"/delete/user"     => "deleteUser.php"
-    //     ,"/documents"       => "documents.php"
-    //     ,"/edit/document"   => "editDocument.php"
-    //     ,"/delete/document" => "deleteDocument.php"
-    // );
 
     protected $routes = array(
-        "/menu"             => "Controller"
-        ,"/users"           => "UserController"
-        ,"/edit/user"       => "UserController"
-        ,"/delete/user"     => "UserController"
-        ,"/documents"       => "DocumentController"
-        ,"/edit/document"   => "DocumentController"
-        ,"/delete/document" => "DocumentController"
+        "/menu"             => [
+                                "className" => "Controller",
+                                "method" => "menu"
+                                ]
+        ,"/users"           => [
+                                "className" => "UserController",
+                                "method" => "print"
+                                ]
+        ,"/edit/user"       => [
+                                "className" => "UserController",
+                                "method" => "edit"
+                                ]
+        ,"/delete/user"     => [
+                                "className" => "UserController",
+                                "method" => "delete"
+                                ]
+        ,"/documents"       => [
+                                "className" => "DocumentController",
+                                "method" => "print"
+                                ]
+        ,"/edit/document"   => [
+                                "className" => "DocumentController",
+                                "method" => "edit"
+                                ]
+        ,"/delete/document" => [
+                                "className" => "DocumentController",
+                                "method" => "delete"
+                                ]
     );
 
     protected function getPath()
@@ -72,18 +72,42 @@ class Router extends Singleton
             {
                 $notFound = false;
 
-                //require_once $innerWay;
+                $controller = new $innerWay["className"];
+                $controller->$innerWay["method"];
+
+                //require_once "notFound.php";//$innerWay;
             }
         }
         if($notFound)
         {
-            $controller = new Controller;
-            //require_once "notFound.php";
+            //$controller = new Controller;
+            require_once "notFound.php";
         }
     }
 
     public function getVar($name, $default = null)
     {
-
+        return $_GET[$name];
     }
 }
+/*
+class UserModel{
+    public static getall()
+    {
+        //scandir
+        $user1 = new UserModel();
+        $user2 = new UserModel();
+
+        $userlist = [$user1, $user2]
+        return $userlist;
+    }
+}
+
+class UserController extends Controller
+{
+    public function list()
+    {
+        $userlist = UserModel::getall();
+    }
+}
+*/

@@ -28,13 +28,42 @@ class Model
 
     public function loadDataFromJSON($id)
     {
-        if (!is_dir($this->SAVEPATH))
-            return false;
+        $result = false;
+        $data = $this->getLoadDataFromJSON($id, $this->SAVEPATH);
 
-        $fileName = $this->SAVEPATH . $id . ".json";
+        if(null != $data)
+        {
+            $this->data = $data;
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    protected static function getLoadDataFromJSON($id, $folder)
+    {
+        if (!is_dir($folder))
+            return null;
+
+        $fileName = $folder . $id . ".json";
         $jsonData = file_get_contents($fileName);
-        $this->data = json_decode($jsonData, true);
+        $data = json_decode($jsonData, true);
 
-        return true;
+        return $data;
+    }
+
+    public static function getAll()
+    {
+        $dataList = array();
+
+        foreach(scandir(self::SAVEPATH) as $fileName)
+        {
+            if(!isJSON($fileName))
+               continue;
+            
+            $id = deleteExtensionJSON($fileName);
+            $dataList []= self::getLoadDataFromJSON($id, self::SAVEPATH);
+        }
+        return $dataList;
     }
 }
