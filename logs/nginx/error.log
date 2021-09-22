@@ -41,3 +41,97 @@
 2021/09/21 10:48:47 [error] 25#25: *467 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.27.0.1, server: crud.local, request: "POST /edit.php HTTP/1.1", upstream: "fastcgi://172.27.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
 2021/09/21 10:48:50 [error] 22#22: *523 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.27.0.1, server: crud.local, request: "POST /edit.php HTTP/1.1", upstream: "fastcgi://172.27.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
 2021/09/21 10:48:54 [error] 22#22: *523 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.27.0.1, server: crud.local, request: "POST /edit.php HTTP/1.1", upstream: "fastcgi://172.27.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:10:57 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/22 06:10:57 [notice] 23#23: gracefully shutting down
+2021/09/22 06:10:57 [notice] 24#24: gracefully shutting down
+2021/09/22 06:10:57 [notice] 23#23: exiting
+2021/09/22 06:10:57 [notice] 24#24: exiting
+2021/09/22 06:10:57 [notice] 24#24: exit
+2021/09/22 06:10:57 [notice] 23#23: exit
+2021/09/22 06:10:57 [notice] 22#22: gracefully shutting down
+2021/09/22 06:10:57 [notice] 25#25: gracefully shutting down
+2021/09/22 06:10:57 [notice] 22#22: exiting
+2021/09/22 06:10:57 [notice] 25#25: exiting
+2021/09/22 06:10:57 [notice] 22#22: exit
+2021/09/22 06:10:57 [notice] 25#25: exit
+2021/09/22 06:10:57 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2021/09/22 06:10:57 [notice] 1#1: worker process 22 exited with code 0
+2021/09/22 06:10:57 [notice] 1#1: worker process 24 exited with code 0
+2021/09/22 06:10:57 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/22 06:10:57 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2021/09/22 06:10:57 [notice] 1#1: worker process 23 exited with code 0
+2021/09/22 06:10:57 [notice] 1#1: worker process 25 exited with code 0
+2021/09/22 06:10:57 [notice] 1#1: exit
+2021/09/22 06:12:36 [notice] 1#1: using the "epoll" event method
+2021/09/22 06:12:36 [notice] 1#1: nginx/1.21.3
+2021/09/22 06:12:36 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 06:12:36 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 06:12:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 06:12:36 [notice] 1#1: start worker processes
+2021/09/22 06:12:36 [notice] 1#1: start worker process 22
+2021/09/22 06:12:36 [notice] 1#1: start worker process 23
+2021/09/22 06:12:36 [notice] 1#1: start worker process 24
+2021/09/22 06:12:36 [notice] 1#1: start worker process 25
+2021/09/22 06:22:22 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/22 06:22:22 [notice] 22#22: gracefully shutting down
+2021/09/22 06:22:22 [notice] 25#25: gracefully shutting down
+2021/09/22 06:22:22 [notice] 22#22: exiting
+2021/09/22 06:22:22 [notice] 25#25: exiting
+2021/09/22 06:22:22 [notice] 22#22: exit
+2021/09/22 06:22:22 [notice] 25#25: exit
+2021/09/22 06:22:22 [notice] 24#24: gracefully shutting down
+2021/09/22 06:22:22 [notice] 24#24: exiting
+2021/09/22 06:22:22 [notice] 23#23: gracefully shutting down
+2021/09/22 06:22:22 [notice] 23#23: exiting
+2021/09/22 06:22:22 [notice] 24#24: exit
+2021/09/22 06:22:22 [notice] 23#23: exit
+2021/09/22 06:22:22 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2021/09/22 06:22:22 [notice] 1#1: worker process 22 exited with code 0
+2021/09/22 06:22:22 [notice] 1#1: worker process 23 exited with code 0
+2021/09/22 06:22:22 [notice] 1#1: worker process 24 exited with code 0
+2021/09/22 06:22:22 [notice] 1#1: worker process 25 exited with code 0
+2021/09/22 06:22:22 [notice] 1#1: exit
+2021/09/22 06:22:36 [notice] 1#1: using the "epoll" event method
+2021/09/22 06:22:36 [notice] 1#1: nginx/1.21.3
+2021/09/22 06:22:36 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 06:22:36 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 06:22:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 06:22:36 [notice] 1#1: start worker processes
+2021/09/22 06:22:36 [notice] 1#1: start worker process 21
+2021/09/22 06:22:36 [notice] 1#1: start worker process 22
+2021/09/22 06:22:36 [notice] 1#1: start worker process 23
+2021/09/22 06:22:36 [notice] 1#1: start worker process 24
+2021/09/22 06:23:40 [error] 23#23: *1 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /users HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:23:40 [error] 23#23: *1 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:25:44 [error] 21#21: *5 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /users HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:25:44 [error] 21#21: *5 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:25:47 [error] 21#21: *5 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:25:48 [error] 21#21: *5 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /users HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/edit/user?id=32"
+2021/09/22 06:25:49 [error] 21#21: *5 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:10 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:10 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:30:11 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:11 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:30:11 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:11 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:30:11 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:12 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /users HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/edit/user?id=32"
+2021/09/22 06:30:13 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:14 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /users HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:30:14 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:35 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:30:35 [error] 23#23: *12 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:52 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:52 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:32:52 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:53 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:32:53 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:53 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:32:53 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:53 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:32:54 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:54 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:32:54 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:54 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 06:32:54 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+2021/09/22 06:32:55 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
