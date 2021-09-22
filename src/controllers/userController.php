@@ -9,12 +9,6 @@ class UserController extends Controller
     {
         $userList = UserModel::getAll();
 
-        foreach($userList as $user)
-        {
-            print_r($user);
-            echo "\n";
-        }
-
         //Работа с View
     }
 
