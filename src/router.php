@@ -21,7 +21,7 @@ class Router extends Singleton
             {
                 $controllerType = (string)$innerWay["className"];
                 $methodName     = (string)$innerWay["method"];
-                
+
                 break;
             }
         }
@@ -30,9 +30,16 @@ class Router extends Singleton
         $controller->$methodName();
     }
 
-    public function getVar($name, $default = null)
+    public static function getVar($name, $default = null)
     {
-        return $_GET[$name];
+        if(array_key_exists($name, $_GET))
+        {
+            return $_GET[$name];
+        }
+        if(array_key_exists($name, $_POST))
+        {
+            return $_POST[$name];
+        }
     }
 
     protected function getPath()

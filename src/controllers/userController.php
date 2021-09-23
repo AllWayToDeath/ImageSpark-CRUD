@@ -1,5 +1,6 @@
 <?php
 
+require_once "functions.php";
 require_once "controller.php";
 require_once "models/userModel.php";
 
@@ -33,16 +34,38 @@ class UserController extends Controller
             {
                 $arrData = $userData->getData();
             }
-
-            //Checker
-            $getCheckedStatus = function($data)
-            {
-                return ("Yes" == $data) ?
-                    "checked":
-                    null;
-            };
             $activeStatus = $arrData["active"];
-            $checked = $getCheckedStatus($activeStatus);
+            $checked = getCheckedStatus($activeStatus);
+        }
+
+        //optimize
+        if(count($_POST) > 0)
+        {
+            $userData = [
+                "login"   => Router::getVar("editUserLogin")
+                ,"fname"  => Router::getVar("editUserFname")
+                ,"lname"  => Router::getVar("editUserLname")
+                ,"bday"   => [
+                    "day"    => Router::getVar("editUserBdayD")
+                    ,"month" => Router::getVar("editUserBdayM")
+                    ,"year"  => Router::getVar("editUserBdayY")
+                    ]
+                ,"active" => Router::getVar("editUserActive")
+            ];
+
+            if(isset($_POST["editUserSubmit"]))
+            {
+                $userData["id"] = $_POST["editUserSubmit"];
+            }
+
+            if(isComplete($userData))
+            {
+                $user = new UserModel();
+                $user->setData($userData);
+                $user->save();
+                header("location: /users");
+                return;
+            }
         }
 
         $vararr = array(

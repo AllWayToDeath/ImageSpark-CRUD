@@ -1,26 +1,25 @@
 <?php
-require_once "functions.php";
 
-const IDINFONAME = "idinfo.txt";
+require_once "functions.php";
 
 class Model
 {
     protected $id;
     protected $data;
+    protected const IDINFONAME = "idinfo.txt";
     protected const SAVEPATH = "./data/";
 
     public function save($id = null)
     {
         $jsonData = json_encode($this->data);
 
-        $nextID = $id;
         if(null == $id)
         {
-            $nextID = 1 + getLastJsonID(static::SAVEPATH);
+            $id = $this->id;
         }
 
-        $fullPath = static::SAVEPATH . "$nextID.json";
-        file_put_contents(static::SAVEPATH.IDINFONAME, $nextID);
+        $fullPath = static::SAVEPATH . "$id.json";
+        file_put_contents(static::SAVEPATH.self::IDINFONAME, $id);
         file_put_contents($fullPath, $jsonData);
     }
 
@@ -76,6 +75,15 @@ class Model
         $successDelete = unlink(static::SAVEPATH.$fileName);
 
         return $successDelete; 
+    }
+
+    public function setData($data)
+    {
+        if(array_key_exists("id", $data))
+        {
+            $this->id = $data["id"];
+        }
+        $this->data = $data;
     }
 
     public function getData()

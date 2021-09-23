@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../../styles/styleButtonsA.css">
 </head>
 <body>
-    <form method="GET" action="">
+    <form method="POST" action="/edit/user">
         <input type="text" name="editUserLogin" value="<?=$userData["login"]?>" placeholder="Login"><br>
         <input type="text" name="editUserFname" value="<?=$userData["fname"]?>" placeholder="1-st Name"><br>
         <input type="text" name="editUserLname" value="<?=$userData["lname"]?>" placeholder="2-nd Name"><br>

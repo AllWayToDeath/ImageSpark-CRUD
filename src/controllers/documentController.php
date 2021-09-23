@@ -1,5 +1,6 @@
 <?php
 
+require_once "functions.php";
 require_once "controller.php";
 require_once "models/documentModel.php";
 
@@ -32,6 +33,41 @@ class DocumentController extends Controller
             if($dataIsLoaded)
             {
                 $arrData = $documentData->getData();
+            }
+        }
+
+        if(count($_POST) > 0)
+        {
+            $docData = [
+                "organisation"      => Router::getVar("editDocOrganisation")
+                ,"counteragent"     => Router::getVar("editDocCounterAgent")
+                ,"signer"           => Router::getVar("editDocSigner")
+                ,"dateofcontract"   => [
+                        "start"   => Router::getVar("editDocDateOfContractS")
+                        ,"finish" => Router::getVar("editDocDateOfContractF")
+                        ]
+                ,"objectofcontract" => Router::getVar("editDocObjectOfContract")
+                ,"currency"         => Router::getVar("editDocCurrency")
+                ,"costofcontract"   => Router::getVar("editDocCostOfContract")
+                ,"requisites"       => [
+                        "adress"  => Router::getVar("editDocReqAdress")
+                        ,"inn"    => Router::getVar("editDocReqINN")
+                        ,"chacc"  => Router::getVar("editDocReqChAcc")
+                        ]
+            ];
+
+            if(isset($_POST["editDocumentSubmit"]))
+            {
+                $docData["id"] = $_POST["editDocumentSubmit"];
+            }
+
+            if(isComplete($docData))
+            {
+                $doc = new DocumentModel();
+                $doc->setData($docData);
+                $doc->save();
+                header("location: /documents");
+                return;
             }
         }
         

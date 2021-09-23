@@ -64,11 +64,11 @@ function createIdInfo($path = SAVEPATHUSER)
     file_put_contents($full_path, $last_id);
 }
 
-function isComplete($user_data)
+function isComplete($data)
 {
     $complete = true;
 
-    foreach($user_data as $key => $ud)
+    foreach($data as $key => $ud)
     {
         if(is_array($ud))
         {
@@ -78,7 +78,7 @@ function isComplete($user_data)
                 break;
             }
         }
-        if("" == $ud)
+        if("" == $ud || null == $ud)
         {
             $complete = false;
             break;
@@ -103,4 +103,11 @@ function deleteExtensionJSON(string $file)
     //analog 'str_replace'
     $len = strlen($file);
     return substr($file, 0, $len-5);
+}
+
+function getCheckedStatus($data)
+{
+    return ("Yes" == $data) ?
+        "checked":
+        null;
 }
