@@ -1,9 +1,10 @@
 <?php
+
 require_once "model.php";
 
-class UserModel extends Model
+class DocumentModel extends Model
 {
-    protected const SAVEPATH = "./data/users/";
+    protected const SAVEPATH = "./data/documents/";
 
     public static function getAll()
     {

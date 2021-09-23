@@ -6,7 +6,7 @@ const IDINFONAME = "idinfo.txt";
 
 class Model
 {
-    //protected $id;
+    protected $id;
     protected $data;
     protected const SAVEPATH = "./data/";
 
@@ -29,11 +29,15 @@ class Model
     public function loadDataFromJSON($id)
     {
         $result = false;
+        var_dump("UM path = ", $this->SAVEPATH);//PAth = 0
         $data = $this->getLoadDataFromJSON($id, $this->SAVEPATH);
+        var_dump("UM Data = ", $data);
+        //var_dump($_GET["id"]);
 
         if(null != $data)
         {
             $this->data = $data;
+            $this->id = $id;
             $result = true;
         }
 
@@ -67,7 +71,9 @@ class Model
                continue;
             
             $id = deleteExtensionJSON($fileName);
-            $dataList []= self::getLoadDataFromJSON($id, $folder);
+            $data = self::getLoadDataFromJSON($id, $folder);
+            $data["id"] = $id;
+            $dataList []= $data;
         }
         return $dataList;
     }
@@ -91,5 +97,9 @@ class Model
     public function getData()
     {
         return $this->data;
+    }
+    public function getID()
+    {
+        return $this->id;
     }
 }

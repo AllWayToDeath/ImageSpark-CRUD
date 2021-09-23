@@ -3,6 +3,7 @@
 require_once "singleton.php";
 require_once "controllers/controller.php";
 require_once "controllers/userController.php";
+require_once "controllers/documentController.php";
 
 class Router extends Singleton
 {
@@ -49,8 +50,6 @@ class Router extends Singleton
 
     public function run()
     {
-        //Выбор какой контроллер запустить и его запуск
-
         $path = $this->getPath();
         $notFound = true;
         $controller = null; 

@@ -66,6 +66,7 @@
             <?php
                 foreach($userList as $user)
                 {
+                    $id = $user["id"];
             ?>
 
             <tr>

@@ -2,48 +2,53 @@
 
 require_once "controller.php";
 require_once "models/userModel.php";
-require_once "views/view.php";
 
 class UserController extends Controller
 {
     public function print()
     {
         $userList = UserModel::getAll();
-        //var_dump("UC UL = ");
-        //var_dump($userList);
         View::render("users", ["userList" => $userList]);
     }
 
     public function edit()
     {
-        $editableUser = new UserModel;
-        $editableUser->loadDataFromJSON($_GET["id"]);
-
-        /*
-        Вызов getVar где-то здесь, но не позже
-        */
-
-        //Или нужно компановать все данные в отдельный массив?
-        View::render("editUser", $_GET);
-
-        /*
-        require_once "save.php";
-
         $title = "Create";
         $buttonSaveName = "Create";
         $userID = null;
 
         if(isset($_GET["id"]))
         {
-            $userData = loadUser($_GET["id"]);
-            $checked = getCheckedStatus($userData["active"]);
+            var_dump("GET-ID = ", $_GET["id"]);
+
             $title = "Edit";
             $buttonSaveName = "Save";
             $userID = $_GET["id"];
+
+            $userData = new UserModel;
+            $userData->loadDataFromJSON($_GET["id"]);
+            var_dump("UC UD = ", $userData);
+
+            //Checker
+            $getCheckedStatus = function($data)
+            {
+                return ("Yes" == $data) ?
+                    "checked":
+                    null;
+            };
+            $activeStatus = $userData->getData()["active"];
+            $checked = $getCheckedStatus($activeStatus);
         }
-        */
+        
+        $vararr = array(
+            "title"           => $title
+            ,"buttonSaveName" => $buttonSaveName
+            ,"userID"         => $userID
+            ,"checked"        => $checked
+            ,"userData"       => $userData->getData()
+        );
 
-
+        View::render("editUser", $vararr);
     }
 
     public function delete()
@@ -51,21 +56,3 @@ class UserController extends Controller
         UserModel::deleteByID($_GET["id"]);
     }
 }
-
-/*
-DocEd
-
-require_once "save.php";
-
-$title = "Create";
-$buttonSaveName = "Create";
-$documentID = null;
-
-if(isset($_GET["id"]))
-{
-    $documentData = loadDocument($_GET["id"]);
-    $title = "Edit";
-    $buttonSaveName = "Save";
-    $documentID = $_GET["id"];
-}
-*/
