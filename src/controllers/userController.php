@@ -17,17 +17,22 @@ class UserController extends Controller
         $buttonSaveName = "Create";
         $userID = null;
 
+        $arrData = null;
+        $dataIsLoaded = false;
+
         if(isset($_GET["id"]))
         {
-            var_dump("GET-ID = ", $_GET["id"]);
-
             $title = "Edit";
             $buttonSaveName = "Save";
             $userID = $_GET["id"];
 
-            $userData = new UserModel;
-            $userData->loadDataFromJSON($_GET["id"]);
-            var_dump("UC UD = ", $userData);
+            $userData = new UserModel();
+            $dataIsLoaded = $userData->loadDataFromJSON($_GET["id"]);
+            
+            if($dataIsLoaded)
+            {
+                $arrData = $userData->getData();
+            }
 
             //Checker
             $getCheckedStatus = function($data)
@@ -36,16 +41,16 @@ class UserController extends Controller
                     "checked":
                     null;
             };
-            $activeStatus = $userData->getData()["active"];
+            $activeStatus = $arrData["active"];
             $checked = $getCheckedStatus($activeStatus);
         }
-        
+
         $vararr = array(
             "title"           => $title
             ,"buttonSaveName" => $buttonSaveName
             ,"userID"         => $userID
             ,"checked"        => $checked
-            ,"userData"       => $userData->getData()
+            ,"userData"       => $arrData
         );
 
         View::render("editUser", $vararr);

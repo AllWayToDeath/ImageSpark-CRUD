@@ -18,21 +18,18 @@ class Model
 
         if(null == $id)
         {
-            $nextID = 1 + getLastJsonID($this->SAVEPATH);
+            $nextID = 1 + getLastJsonID(static::SAVEPATH);
         }
 
-        $fullPath = $this->SAVEPATH . "$nextID.json";
-        file_put_contents($this->SAVEPATH.IDINFONAME, $nextID);
+        $fullPath = static::SAVEPATH . "$nextID.json";
+        file_put_contents(static::SAVEPATH.IDINFONAME, $nextID);
         file_put_contents($fullPath, $jsonData);
     }
 
     public function loadDataFromJSON($id)
     {
         $result = false;
-        var_dump("UM path = ", $this->SAVEPATH);//PAth = 0
-        $data = $this->getLoadDataFromJSON($id, $this->SAVEPATH);
-        var_dump("UM Data = ", $data);
-        //var_dump($_GET["id"]);
+        $data = $this->getLoadDataFromJSON($id, static::SAVEPATH);
 
         if(null != $data)
         {
@@ -40,7 +37,6 @@ class Model
             $this->id = $id;
             $result = true;
         }
-
         return $result;
     }
 
@@ -58,20 +54,15 @@ class Model
 
     public static function getAll()
     {
-        return self::getAllInFolder(self::SAVEPATH);
-    }
-
-    protected static function getAllInFolder($folder)
-    {
         $dataList = array();
 
-        foreach(scandir($folder) as $fileName)
+        foreach(scandir(static::SAVEPATH) as $fileName)
         {
             if(!isJSON($fileName))
                continue;
             
             $id = deleteExtensionJSON($fileName);
-            $data = self::getLoadDataFromJSON($id, $folder);
+            $data = self::getLoadDataFromJSON($id, static::SAVEPATH);
             $data["id"] = $id;
             $dataList []= $data;
         }
@@ -89,9 +80,9 @@ class Model
             return false;
 
         $fileName = $id.".json";
-        $successDelete = unlink(self::SAVEPATH.$fileName);
+        $successDelete = unlink(static::SAVEPATH.$fileName);
 
-        return $successDelete;    
+        return $successDelete; 
     }
 
     public function getData()

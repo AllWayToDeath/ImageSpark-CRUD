@@ -32,7 +32,7 @@
         </td>
         
         <td>
-            <a id="add" href="editDocument.php">+</a>
+            <a id="add" href="edit/document">+</a>
         </td>
     </tr>
     <tr >
@@ -68,6 +68,7 @@
             <?php
                 foreach($documentList as $document)
                 {
+                    $id = $document["id"];
             ?>
 
             <tr>

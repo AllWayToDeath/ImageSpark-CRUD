@@ -66,7 +66,7 @@
         
         <tr>
             <td><button id="add" name="editDocumentSubmit" type="submit" value="<?=$documentID?>" ><?=$buttonSaveName?></button></td>
-            <td><a href="/documents">Back</a></td>
+            <td><a id="back" href="/documents">Back</a></td>
         </tr>
     </form>
     </table>
