@@ -64,16 +64,8 @@
             </tr>
 
             <?php
-                require_once "save.php";
-                require_once "functions.php";
-
-                foreach(scandir(SAVEPATHUSER) as $file_json)
+                foreach($userList as $user)
                 {
-                    if(!isJSON($file_json))
-                        continue;
-
-                    $id = deleteExtensionJSON($file_json);
-                    $user = loadUser($id);
             ?>
 
             <tr>

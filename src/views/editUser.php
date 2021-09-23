@@ -1,19 +1,3 @@
-<?php
-require_once "save.php";
-
-$title = "Create";
-$buttonSaveName = "Create";
-$userID = null;
-
-if(isset($_GET["id"]))
-{
-    $userData = loadUser($_GET["id"]);
-    $checked = getCheckedStatus($userData["active"]);
-    $title = "Edit";
-    $buttonSaveName = "Save";
-    $userID = $_GET["id"];
-}
-?>
 <html>
 <head>
     <title><?=$title?> user</title>

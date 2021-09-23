@@ -9,7 +9,9 @@ class UserController extends Controller
     public function print()
     {
         $userList = UserModel::getAll();
-        View::render("users");
+        //var_dump("UC UL = ");
+        //var_dump($userList);
+        View::render("users", ["userList" => $userList]);
     }
 
     public function edit()
@@ -17,8 +19,31 @@ class UserController extends Controller
         $editableUser = new UserModel;
         $editableUser->loadDataFromJSON($_GET["id"]);
 
+        /*
+        Вызов getVar где-то здесь, но не позже
+        */
+
         //Или нужно компановать все данные в отдельный массив?
         View::render("editUser", $_GET);
+
+        /*
+        require_once "save.php";
+
+        $title = "Create";
+        $buttonSaveName = "Create";
+        $userID = null;
+
+        if(isset($_GET["id"]))
+        {
+            $userData = loadUser($_GET["id"]);
+            $checked = getCheckedStatus($userData["active"]);
+            $title = "Edit";
+            $buttonSaveName = "Save";
+            $userID = $_GET["id"];
+        }
+        */
+
+
     }
 
     public function delete()
@@ -26,3 +51,21 @@ class UserController extends Controller
         UserModel::deleteByID($_GET["id"]);
     }
 }
+
+/*
+DocEd
+
+require_once "save.php";
+
+$title = "Create";
+$buttonSaveName = "Create";
+$documentID = null;
+
+if(isset($_GET["id"]))
+{
+    $documentData = loadDocument($_GET["id"]);
+    $title = "Edit";
+    $buttonSaveName = "Save";
+    $documentID = $_GET["id"];
+}
+*/

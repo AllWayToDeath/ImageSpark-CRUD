@@ -54,15 +54,20 @@ class Model
 
     public static function getAll()
     {
+        return self::getAllInFolder(self::SAVEPATH);
+    }
+
+    protected static function getAllInFolder($folder)
+    {
         $dataList = array();
 
-        foreach(scandir(self::SAVEPATH) as $fileName)
+        foreach(scandir($folder) as $fileName)
         {
             if(!isJSON($fileName))
                continue;
             
             $id = deleteExtensionJSON($fileName);
-            $dataList []= self::getLoadDataFromJSON($id, self::SAVEPATH);
+            $dataList []= self::getLoadDataFromJSON($id, $folder);
         }
         return $dataList;
     }
@@ -81,5 +86,10 @@ class Model
         $successDelete = unlink(self::SAVEPATH.$fileName);
 
         return $successDelete;    
+    }
+
+    public function getData()
+    {
+        return $this->data;
     }
 }

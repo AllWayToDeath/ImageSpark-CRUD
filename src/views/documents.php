@@ -66,16 +66,8 @@
             </tr>
 
             <?php
-                require_once "save.php";
-                require_once "functions.php";
-
-                foreach(scandir(SAVEPATHDOCUMENT) as $file_json)
+                foreach($documentList as $document)
                 {
-                    if(!isJSON($file_json))
-                        continue;
-
-                    $id = deleteExtensionJSON($file_json);
-                    $document = loadDocument($id);  
             ?>
 
             <tr>

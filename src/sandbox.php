@@ -1,6 +1,6 @@
 <?php
 
-class TestClass
+/*class TestClass
 {
     public function sayHi()
     {
@@ -19,4 +19,12 @@ $instance->$functionname();
 require_once "controllers/userController.php";
 
 $uc = new UserController;
-$uc->print();
+$uc->print();*/
+
+
+class ClassA
+{
+    public static $msg = "MsgA";
+
+    //public static
+}

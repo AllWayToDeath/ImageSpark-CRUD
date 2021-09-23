@@ -1,18 +1,3 @@
-<?php
-require_once "save.php";
-
-$title = "Create";
-$buttonSaveName = "Create";
-$documentID = null;
-
-if(isset($_GET["id"]))
-{
-    $documentData = loadDocument($_GET["id"]);
-    $title = "Edit";
-    $buttonSaveName = "Save";
-    $documentID = $_GET["id"];
-}
-?>
 <html>
 <head>
     <title><?=$title?> document</title>
