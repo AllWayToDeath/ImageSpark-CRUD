@@ -1,5 +1,4 @@
 <?php
-
 require_once "functions.php";
 
 const IDINFONAME = "idinfo.txt";
@@ -15,7 +14,6 @@ class Model
         $jsonData = json_encode($this->data);
 
         $nextID = $id;
-
         if(null == $id)
         {
             $nextID = 1 + getLastJsonID(static::SAVEPATH);
@@ -69,11 +67,6 @@ class Model
         return $dataList;
     }
 
-    // Bug!: В потомках вызывается этот же метод, но с родительским путем
-    /*
-    Все дело в self. Метод вызывается без изменений, 
-    т.к. в дочерних классах данный метод не переопределяется
-    */
     public static function deleteByID($id)
     {
         if(null == $id)

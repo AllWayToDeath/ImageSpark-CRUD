@@ -1,15 +1,53 @@
 <?php
 
 require_once "singleton.php";
-require_once "controllers/controller.php";
+require_once "controllers/commonController.php";
 require_once "controllers/userController.php";
 require_once "controllers/documentController.php";
 
 class Router extends Singleton
 {
+    public function run()
+    {
+        $path = $this->getPath();
+        $controller = null;
+
+        $controllerType = "CommonController";
+        $methodName     = "notFound";
+
+        foreach($this->routes as $outerWay => $innerWay)
+        {
+            if($outerWay == $path)
+            {
+                $controllerType = (string)$innerWay["className"];
+                $methodName     = (string)$innerWay["method"];
+                
+                break;
+            }
+        }
+
+        $controller = new $controllerType;
+        $controller->$methodName();
+    }
+
+    public function getVar($name, $default = null)
+    {
+        return $_GET[$name];
+    }
+
+    protected function getPath()
+    {
+        $path = $_SERVER['REQUEST_URI'];
+        $idQ = strpos($path, "?");
+        if($idQ > 0)
+            $path = substr($path, 0, $idQ);
+
+        return $path;
+    }
+
     protected $routes = array(
         "/menu"             => [
-                                "className" => "Controller",
+                                "className" => "CommonController",
                                 "method" => "menu"
                                 ]
         ,"/users"           => [
@@ -37,44 +75,4 @@ class Router extends Singleton
                                 "method" => "delete"
                                 ]
     );
-
-    protected function getPath()
-    {
-        $path = $_SERVER['REQUEST_URI'];
-        $idQ = strpos($path, "?");
-        if($idQ > 0)
-            $path = substr($path, 0, $idQ);
-
-        return $path;
-    }
-
-    public function run()
-    {
-        $path = $this->getPath();
-        $notFound = true;
-        $controller = null; 
-
-        foreach($this->routes as $outerWay => $innerWay)
-        {
-            if($outerWay == $path)
-            {
-                $notFound = false;
-                $func = (string)$innerWay["method"];
-
-                $controller = new $innerWay["className"];
-                $controller->$func();//В строку отдельную
-            }
-        }
-        if($notFound)
-        {
-            //$controller = new Controller;
-            //$controller->menu();
-            require_once "notFound.php";
-        }
-    }
-
-    public function getVar($name, $default = null)
-    {
-        return $_GET[$name];
-    }
 }
