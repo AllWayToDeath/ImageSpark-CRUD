@@ -93,33 +93,19 @@ class DocumentController extends Controller
     protected static function validateDocumentData($userData)
     {
         extract($userData);
-        $errors = array();
-        
-        $erOrg = static::validateTitleName($organisation, "Organisation");
-        $erCAg = static::validateTitleName($counteragent, "counteragent");
-        $erSig = static::validateTitleName($signer, "signer");
-        $erDCS = static::validateDate($dateofcontract["start"]);
-        $erDCF = static::validateDate($dateofcontract["finish"]);
-        $erOOC = static::validateTitleName($objectofcontract, "objectofcontract");
-        $erCur = static::validateCurrency($currency);
-        $erCst = static::validateCost($costofcontract);
-        $erAdr = static::validateAdress($requisites["adress"]);
-        $erINN = static::validateINN($requisites["inn"]);
-        $erCAc = static::validateAccount($requisites["chacc"]);
 
-        //Или вызывать сразу внутри array_merge
         $errors = array_merge(
-            $erOrg
-            ,$erCAg
-            ,$erSig
-            ,$erDCS
-            ,$erDCF
-            ,$erOOC
-            ,$erCur
-            ,$erCst
-            ,$erAdr
-            ,$erINN
-            ,$erCAc
+            static::validateTitleName($organisation, "Organisation")
+            ,static::validateTitleName($counteragent, "counteragent")
+            ,static::validateTitleName($signer, "signer")
+            ,static::validateDate($dateofcontract["start"])
+            ,static::validateDate($dateofcontract["finish"])
+            ,static::validateTitleName($objectofcontract, "objectofcontract")
+            ,static::validateCurrency($currency)
+            ,static::validateCost($costofcontract)
+            ,static::validateAdress($requisites["adress"])
+            ,static::validateINN($requisites["inn"])
+            ,static::validateAccount($requisites["chacc"])
         );
         return $errors;
     }
@@ -210,63 +196,6 @@ class DocumentController extends Controller
         {
             $errors []= "INN is wrong";
         }
-
-        return $errors;
-    }
-
-    protected static function validateDate($date)
-    {
-        extract($date);
-
-        $errors = array();
-
-        //Day
-        if($day == null)
-        {
-            $errors []= "Day is empty";
-        }
-        $options = array(
-            'options' => array(
-                'default' => 1
-                ,'min_range' => 1
-                ,'max_range' => 31
-            ),
-            'flags' => FILTER_FLAG_ALLOW_OCTAL,
-        );
-        if(!filter_var($day, FILTER_VALIDATE_INT, $options))
-        {
-            $errors []= "Day is wrong";
-        }
-
-        //Month
-        if($month == null)
-        {
-            $errors []= "Month is empty";
-        }
-        $options = array(
-            'options' => array(
-                'default' => 1
-                ,'min_range' => 1
-                ,'max_range' => 12
-            ),
-            'flags' => FILTER_FLAG_ALLOW_OCTAL,
-        );
-        filter_var($month, FILTER_VALIDATE_INT, $options);
-
-        //Year
-        if($year == null)
-        {
-            $errors []= "Year is empty";
-        }
-        $options = array(
-            'options' => array(
-                'default' => 2021
-            ),
-            'flags' => FILTER_FLAG_ALLOW_OCTAL,
-        );
-        filter_var($year, FILTER_VALIDATE_INT, $options);
-
-        //add other logic here ...
 
         return $errors;
     }

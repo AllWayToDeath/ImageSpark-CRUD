@@ -63,7 +63,7 @@ class Router extends Singleton
                                 ]
         ,"/edit/user"       => [
                                 "className" => "UserController",
-                                "method" => "edit"
+                                "method" => "editOrCreate"
                                 ]
         ,"/delete/user"     => [
                                 "className" => "UserController",

@@ -11,16 +11,18 @@ class Model
 
     public function save($id = null)
     {
-        $jsonData = json_encode($this->data);
-
-        if(null == $id)
+        if($id == null)
         {
             $id = $this->id;
         }
-
         $fullPath = static::SAVEPATH . "$id.json";
-        file_put_contents(static::SAVEPATH.self::IDINFONAME, $id);
+        $jsonData = json_encode($this->data);
         file_put_contents($fullPath, $jsonData);
+
+        if($id > static::getLastJsonID())
+        {
+            file_put_contents(static::SAVEPATH.self::IDINFONAME, $id);
+        }
     }
 
     public function loadDataFromJSON($id)
@@ -66,6 +68,19 @@ class Model
         return $dataList;
     }
 
+    public function loadAndGetData($id)
+    {
+        $dataIsLoaded = $this->loadDataFromJSON($id);
+        $result = null;
+
+        if($dataIsLoaded)
+        {
+            $result = $this->getData();
+        }
+
+        return $result;
+    }
+
     public static function deleteByID($id)
     {
         if(null == $id)
@@ -93,5 +108,16 @@ class Model
     public function getID()
     {
         return $this->id;
+    }
+
+    public static function getLastJsonID()
+    {
+        $path = static::SAVEPATH.static::IDINFONAME;
+        if(!file_exists($path))
+        {
+            createIdInfo();
+        }
+        $last_id = file_get_contents($path);
+        return $last_id;
     }
 }
