@@ -56,9 +56,12 @@ class DocumentController extends Controller
                         ]
             ];
 
-            if(isset($_POST["editDocumentSubmit"]))
+            if(isset($_POST["editDocumentSubmit"]) && null != $_POST["editDocumentSubmit"])
             {
                 $docData["id"] = $_POST["editDocumentSubmit"];
+            }
+            else{
+                $docData["id"] = 1 + getLastJsonID(UserModel::SAVEPATH, UserModel::IDINFONAME);
             }
 
             if(isComplete($docData))
@@ -84,5 +87,6 @@ class DocumentController extends Controller
     public function delete()
     {
         DocumentModel::deleteByID($_GET["id"]);
+        header("location: /documents");
     }
 }

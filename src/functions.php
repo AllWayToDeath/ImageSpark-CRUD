@@ -45,9 +45,9 @@ function isJSON($path)
     return $is_json;
 }
 
-function getLastJsonID($path = SAVEPATHUSER)
+function getLastJsonID($path, $idinfo)
 {
-    $path .= IDINFONAME;
+    $path .= $idinfo;
     if (!file_exists($path)) {
         var_dump("here");
         createIdInfo();
@@ -110,4 +110,10 @@ function getCheckedStatus($data)
     return ("Yes" == $data) ?
         "checked":
         null;
+}
+function getActiveStatus($data)
+{
+    return ("" == $data) ?
+        "No":
+        "Yes";
 }

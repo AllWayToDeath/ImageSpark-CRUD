@@ -10,7 +10,7 @@ function saveUniversal($folder, $data, $id = null)
 
     if(null == $id)
     {
-        $nextID = 1 + getLastJsonID($folder);
+        $nextID = 1 + getLastJsonID($folder, IDINFONAME);
     }
 
     $fullPath = $folder . "$nextID.json";

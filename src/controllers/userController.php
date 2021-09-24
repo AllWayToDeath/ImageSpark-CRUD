@@ -50,12 +50,14 @@ class UserController extends Controller
                     ,"month" => Router::getVar("editUserBdayM")
                     ,"year"  => Router::getVar("editUserBdayY")
                     ]
-                ,"active" => Router::getVar("editUserActive")
+                ,"active" => getActiveStatus(Router::getVar("editUserActive"))
             ];
 
-            if(isset($_POST["editUserSubmit"]))
+            if(isset($_POST["editUserSubmit"]) && null != $_POST["editUserSubmit"])
             {
                 $userData["id"] = $_POST["editUserSubmit"];
+            }else{
+                $userData["id"] = 1 + getLastJsonID(UserModel::SAVEPATH, UserModel::IDINFONAME);
             }
 
             if(isComplete($userData))
@@ -82,5 +84,6 @@ class UserController extends Controller
     public function delete()
     {
         UserModel::deleteByID($_GET["id"]);
+        header("location: /users");
     }
 }

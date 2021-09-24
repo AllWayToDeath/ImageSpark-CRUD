@@ -6,8 +6,8 @@ class Model
 {
     protected $id;
     protected $data;
-    protected const IDINFONAME = "idinfo.txt";
-    protected const SAVEPATH = "./data/";
+    public const IDINFONAME = "idinfo.txt";
+    public const SAVEPATH = "./data/";
 
     public function save($id = null)
     {
