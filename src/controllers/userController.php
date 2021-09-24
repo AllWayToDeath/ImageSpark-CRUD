@@ -18,7 +18,7 @@ class UserController extends Controller
         $buttonSaveName = "Create";
         $userID = null;
 
-        $arrData = null;
+        $userData = null;
         $dataIsLoaded = false;
 
         if(isset($_GET["id"]))
@@ -27,16 +27,18 @@ class UserController extends Controller
             $buttonSaveName = "Save";
             $userID = $_GET["id"];
 
-            $userData = new UserModel();
-            $dataIsLoaded = $userData->loadDataFromJSON($_GET["id"]);
+            $userModel = new UserModel();
+            $dataIsLoaded = $userModel->loadDataFromJSON($_GET["id"]);
             
             if($dataIsLoaded)
             {
-                $arrData = $userData->getData();
+                $userData = $userModel->getData();
             }
-            $activeStatus = $arrData["active"];
+            //In view
+            $activeStatus = $userData["active"];
             $checked = getCheckedStatus($activeStatus);
         }
+        $errors = array();
 
         //optimize
         if(count($_POST) > 0)
@@ -53,6 +55,7 @@ class UserController extends Controller
                 ,"active" => getActiveStatus(Router::getVar("editUserActive"))
             ];
 
+            //In model
             if(isset($_POST["editUserSubmit"]) && null != $_POST["editUserSubmit"])
             {
                 $userData["id"] = $_POST["editUserSubmit"];
@@ -60,14 +63,21 @@ class UserController extends Controller
                 $userData["id"] = 1 + getLastJsonID(UserModel::SAVEPATH, UserModel::IDINFONAME);
             }
 
-            if(isComplete($userData))
+            //Validation
+            $errors = static::validateUserData($userData);
+            if(empty($errors))
             {
-                $user = new UserModel();
-                $user->setData($userData);
-                $user->save();
+                $userModel = new UserModel();
+                $userModel->setData($userData);
+                $userModel->save();
                 header("location: /users");
                 return;
             }
+
+            /*if(isComplete($userData))
+            {
+                
+            }*/
         }
 
         $vararr = array(
@@ -75,7 +85,8 @@ class UserController extends Controller
             ,"buttonSaveName" => $buttonSaveName
             ,"userID"         => $userID
             ,"checked"        => $checked
-            ,"userData"       => $arrData
+            ,"userData"       => $userData
+            ,"errors"         => $errors
         );
 
         View::render("editUser", $vararr);
@@ -85,5 +96,108 @@ class UserController extends Controller
     {
         UserModel::deleteByID($_GET["id"]);
         header("location: /users");
+    }
+
+    protected static function validateUserData($userData)
+    {
+        extract($userData);
+        $errors = array();   
+        
+        $erLogin = static::validateLogin($login);
+        $erFName = static::validateName($fname, "First");
+        $erLName = static::validateName($lname, "Last");
+        $erBDay = static::validateDate($bday);
+
+        $errors = array_merge($erLogin, $erFName, $erLName, $erBDay);
+        return $errors;
+    }
+
+    protected static function validateLogin($login)
+    {
+        $errors = array();
+
+        //↓↓↓ No ARAB style! ↓↓↓
+        if($login == null)
+        {
+            $errors []= "Login is empty";
+        }
+
+        //add other logic here ...
+
+        return $errors;
+    }
+
+    protected static function validateName($name, $prefix = "")
+    {
+        $errors = array();
+        $postfix = ($prefix == "") ?
+             "Name": "$prefix name";
+
+        if($name == null)
+        {
+            $errors []= "$postfix is empty";
+        }
+        if(! preg_match("/^[a-zA-z]*$/", $name))
+        {
+            $errors []= "$postfix contain a wrong symbol";
+        }
+
+        //add other logic here ...
+
+        return $errors;
+    }
+
+    protected static function validateDate($date)
+    {
+        extract($date);
+
+        $errors = array();
+
+        //Day
+        if($day == null)
+        {
+            $errors []= "Day is empty";
+        }
+        $options = array(
+            'options' => array(
+                'default' => 1
+                ,'min_range' => 1
+                ,'max_range' => 31
+            ),
+            'flags' => FILTER_FLAG_ALLOW_OCTAL,
+        );
+        filter_var($day, FILTER_VALIDATE_INT, $options);
+
+        //Month
+        if($month == null)
+        {
+            $errors []= "Month is empty";
+        }
+        $options = array(
+            'options' => array(
+                'default' => 1
+                ,'min_range' => 1
+                ,'max_range' => 12
+            ),
+            'flags' => FILTER_FLAG_ALLOW_OCTAL,
+        );
+        filter_var($month, FILTER_VALIDATE_INT, $options);
+
+        //Year
+        if($year == null)
+        {
+            $errors []= "Year is empty";
+        }
+        $options = array(
+            'options' => array(
+                'default' => 2021
+            ),
+            'flags' => FILTER_FLAG_ALLOW_OCTAL,
+        );
+        filter_var($year, FILTER_VALIDATE_INT, $options);
+
+        //add other logic here ...
+
+        return $errors;
     }
 }

@@ -24,7 +24,12 @@
         <a id="back" href="/users">Back</a>
 
     </form>
-    <p><? printErrors() ?></p>
+    <p>
+        <? foreach($errors as $error)
+        {
+            echo $error . "<br>";
+        } ?>
+    </p>
 </body>
 </html>
 <!-- ================================================================= -->
