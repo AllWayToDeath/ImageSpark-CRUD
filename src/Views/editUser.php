@@ -1,20 +1,3 @@
-<?php
-namespace src;
-require_once "Save.php";
-
-$title = "Create";
-$buttonSaveName = "Create";
-$userID = null;
-
-if(isset($_GET["id"]))
-{
-    $userData = loadUser($_GET["id"]);
-    $checked = getCheckedStatus($userData["active"]);
-    $title = "Edit";
-    $buttonSaveName = "Save";
-    $userID = $_GET["id"];
-}
-?>
 <html>
 <head>
     <title><?=$title?> user</title>
@@ -22,7 +5,7 @@ if(isset($_GET["id"]))
     <link rel="stylesheet" href="../../styles/styleButtonsA.css">
 </head>
 <body>
-    <form method="GET" action="">
+    <form method="POST" action="">
         <input type="text" name="editUserLogin" value="<?=$userData["login"]?>" placeholder="Login"><br>
         <input type="text" name="editUserFname" value="<?=$userData["fname"]?>" placeholder="1-st Name"><br>
         <input type="text" name="editUserLname" value="<?=$userData["lname"]?>" placeholder="2-nd Name"><br>
@@ -41,7 +24,12 @@ if(isset($_GET["id"]))
         <a id="back" href="/users">Back</a>
 
     </form>
-    <p><? printErrors() ?></p>
+    <p>
+        <? foreach($errors as $error)
+        {
+            echo $error . "<br>";
+        } ?>
+    </p>
 </body>
 </html>
 <!-- ================================================================= -->

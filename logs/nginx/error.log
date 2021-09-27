@@ -41,6 +41,7 @@
 2021/09/21 10:48:47 [error] 25#25: *467 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.27.0.1, server: crud.local, request: "POST /edit.php HTTP/1.1", upstream: "fastcgi://172.27.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
 2021/09/21 10:48:50 [error] 22#22: *523 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.27.0.1, server: crud.local, request: "POST /edit.php HTTP/1.1", upstream: "fastcgi://172.27.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
 2021/09/21 10:48:54 [error] 22#22: *523 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.27.0.1, server: crud.local, request: "POST /edit.php HTTP/1.1", upstream: "fastcgi://172.27.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
+<<<<<<< HEAD
 2021/09/22 06:10:57 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
 2021/09/22 06:10:57 [notice] 23#23: gracefully shutting down
 2021/09/22 06:10:57 [notice] 24#24: gracefully shutting down
@@ -135,3 +136,272 @@
 2021/09/22 06:32:54 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
 2021/09/22 06:32:54 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/users"
 2021/09/22 06:32:55 [error] 23#23: *28 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.29.0.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+=======
+2021/09/22 11:49:20 [notice] 1#1: using the "epoll" event method
+2021/09/22 11:49:20 [notice] 1#1: nginx/1.21.3
+2021/09/22 11:49:20 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 11:49:20 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 11:49:20 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 11:49:20 [notice] 1#1: start worker processes
+2021/09/22 11:49:20 [notice] 1#1: start worker process 22
+2021/09/22 11:49:20 [notice] 1#1: start worker process 23
+2021/09/22 11:49:20 [notice] 1#1: start worker process 24
+2021/09/22 11:49:20 [notice] 1#1: start worker process 25
+2021/09/22 11:49:36 [error] 23#23: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 172.30.0.1, server: crud.local, request: "GET /engine.php HTTP/1.1", upstream: "fastcgi://172.30.0.2:9000", host: "crud.local"
+2021/09/22 11:49:36 [error] 23#23: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 172.30.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.30.0.2:9000", host: "crud.local", referrer: "http://crud.local/engine.php"
+2021/09/22 11:49:37 [error] 23#23: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 172.30.0.1, server: crud.local, request: "GET /engine.php HTTP/1.1", upstream: "fastcgi://172.30.0.2:9000", host: "crud.local"
+2021/09/22 11:49:37 [error] 23#23: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 172.30.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.30.0.2:9000", host: "crud.local", referrer: "http://crud.local/engine.php"
+2021/09/22 11:55:55 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/22 11:55:55 [notice] 22#22: gracefully shutting down
+2021/09/22 11:55:55 [notice] 25#25: gracefully shutting down
+2021/09/22 11:55:55 [notice] 22#22: exiting
+2021/09/22 11:55:55 [notice] 25#25: exiting
+2021/09/22 11:55:55 [notice] 22#22: exit
+2021/09/22 11:55:55 [notice] 25#25: exit
+2021/09/22 11:55:55 [notice] 24#24: gracefully shutting down
+2021/09/22 11:55:55 [notice] 24#24: exiting
+2021/09/22 11:55:55 [notice] 24#24: exit
+2021/09/22 11:55:55 [notice] 23#23: gracefully shutting down
+2021/09/22 11:55:55 [notice] 23#23: exiting
+2021/09/22 11:55:55 [notice] 23#23: exit
+2021/09/22 11:55:55 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2021/09/22 11:55:55 [notice] 1#1: worker process 22 exited with code 0
+2021/09/22 11:55:55 [notice] 1#1: worker process 23 exited with code 0
+2021/09/22 11:55:55 [notice] 1#1: worker process 24 exited with code 0
+2021/09/22 11:55:55 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2021/09/22 11:55:55 [notice] 1#1: worker process 25 exited with code 0
+2021/09/22 11:55:55 [notice] 1#1: exit
+2021/09/22 11:56:29 [notice] 1#1: using the "epoll" event method
+2021/09/22 11:56:29 [notice] 1#1: nginx/1.21.3
+2021/09/22 11:56:29 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 11:56:29 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 11:56:29 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 11:56:29 [notice] 1#1: start worker processes
+2021/09/22 11:56:29 [notice] 1#1: start worker process 22
+2021/09/22 11:56:29 [notice] 1#1: start worker process 23
+2021/09/22 11:56:29 [notice] 1#1: start worker process 24
+2021/09/22 11:56:29 [notice] 1#1: start worker process 25
+2021/09/22 11:56:35 [error] 22#22: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 172.31.0.1, server: crud.local, request: "GET /engine.php HTTP/1.1", upstream: "fastcgi://172.31.0.2:9000", host: "crud.local"
+2021/09/22 11:56:35 [error] 22#22: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 172.31.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.31.0.2:9000", host: "crud.local", referrer: "http://crud.local/engine.php"
+2021/09/22 11:56:49 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/22 11:56:49 [notice] 22#22: gracefully shutting down
+2021/09/22 11:56:49 [notice] 24#24: gracefully shutting down
+2021/09/22 11:56:49 [notice] 23#23: gracefully shutting down
+2021/09/22 11:56:49 [notice] 24#24: exiting
+2021/09/22 11:56:49 [notice] 23#23: exiting
+2021/09/22 11:56:49 [notice] 25#25: gracefully shutting down
+2021/09/22 11:56:49 [notice] 24#24: exit
+2021/09/22 11:56:49 [notice] 25#25: exiting
+2021/09/22 11:56:49 [notice] 23#23: exit
+2021/09/22 11:56:49 [notice] 25#25: exit
+2021/09/22 11:56:49 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2021/09/22 11:56:49 [notice] 1#1: worker process 24 exited with code 0
+2021/09/22 11:56:49 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/22 11:56:49 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2021/09/22 11:56:49 [notice] 1#1: worker process 23 exited with code 0
+2021/09/22 11:56:49 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/22 11:56:49 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2021/09/22 11:56:49 [notice] 1#1: worker process 25 exited with code 0
+2021/09/22 11:56:49 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/22 11:57:35 [notice] 1#1: using the "epoll" event method
+2021/09/22 11:57:35 [notice] 1#1: nginx/1.21.3
+2021/09/22 11:57:35 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 11:57:35 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 11:57:35 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 11:57:35 [notice] 1#1: start worker processes
+2021/09/22 11:57:35 [notice] 1#1: start worker process 22
+2021/09/22 11:57:35 [notice] 1#1: start worker process 23
+2021/09/22 11:57:35 [notice] 1#1: start worker process 24
+2021/09/22 11:57:35 [notice] 1#1: start worker process 25
+2021/09/22 11:57:39 [error] 23#23: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.0.1, server: crud.local, request: "GET /engine.php HTTP/1.1", upstream: "fastcgi://192.168.0.2:9000", host: "crud.local"
+2021/09/22 11:57:39 [error] 23#23: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.0.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.0.2:9000", host: "crud.local", referrer: "http://crud.local/engine.php"
+2021/09/22 11:57:58 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/22 11:57:58 [notice] 23#23: gracefully shutting down
+2021/09/22 11:57:58 [notice] 22#22: gracefully shutting down
+2021/09/22 11:57:58 [notice] 22#22: exiting
+2021/09/22 11:57:58 [notice] 24#24: gracefully shutting down
+2021/09/22 11:57:58 [notice] 24#24: exiting
+2021/09/22 11:57:58 [notice] 22#22: exit
+2021/09/22 11:57:58 [notice] 24#24: exit
+2021/09/22 11:57:58 [notice] 25#25: gracefully shutting down
+2021/09/22 11:57:58 [notice] 25#25: exiting
+2021/09/22 11:57:58 [notice] 25#25: exit
+2021/09/22 11:57:58 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2021/09/22 11:57:58 [notice] 1#1: worker process 22 exited with code 0
+2021/09/22 11:57:58 [notice] 1#1: worker process 24 exited with code 0
+2021/09/22 11:57:58 [notice] 1#1: worker process 25 exited with code 0
+2021/09/22 11:57:58 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/22 11:58:19 [notice] 1#1: using the "epoll" event method
+2021/09/22 11:58:19 [notice] 1#1: nginx/1.21.3
+2021/09/22 11:58:19 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 11:58:19 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 11:58:19 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 11:58:19 [notice] 1#1: start worker processes
+2021/09/22 11:58:19 [notice] 1#1: start worker process 22
+2021/09/22 11:58:19 [notice] 1#1: start worker process 23
+2021/09/22 11:58:19 [notice] 1#1: start worker process 24
+2021/09/22 11:58:19 [notice] 1#1: start worker process 25
+2021/09/22 11:58:22 [error] 22#22: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.16.1, server: crud.local, request: "GET /engine.php HTTP/1.1", upstream: "fastcgi://192.168.16.2:9000", host: "crud.local"
+2021/09/22 11:58:22 [error] 22#22: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.16.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.16.2:9000", host: "crud.local", referrer: "http://crud.local/engine.php"
+2021/09/22 11:58:36 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/22 11:58:36 [notice] 22#22: gracefully shutting down
+2021/09/22 11:58:36 [notice] 23#23: gracefully shutting down
+2021/09/22 11:58:36 [notice] 23#23: exiting
+2021/09/22 11:58:36 [notice] 23#23: exit
+2021/09/22 11:58:36 [notice] 25#25: gracefully shutting down
+2021/09/22 11:58:36 [notice] 25#25: exiting
+2021/09/22 11:58:36 [notice] 25#25: exit
+2021/09/22 11:58:36 [notice] 24#24: gracefully shutting down
+2021/09/22 11:58:36 [notice] 24#24: exiting
+2021/09/22 11:58:36 [notice] 24#24: exit
+2021/09/22 11:58:36 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2021/09/22 11:58:36 [notice] 1#1: worker process 23 exited with code 0
+2021/09/22 11:58:36 [notice] 1#1: worker process 24 exited with code 0
+2021/09/22 11:58:36 [notice] 1#1: worker process 25 exited with code 0
+2021/09/22 11:58:36 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/22 12:12:04 [notice] 1#1: using the "epoll" event method
+2021/09/22 12:12:04 [notice] 1#1: nginx/1.21.3
+2021/09/22 12:12:04 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 12:12:04 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 12:12:04 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 12:12:04 [notice] 1#1: start worker processes
+2021/09/22 12:12:04 [notice] 1#1: start worker process 22
+2021/09/22 12:12:04 [notice] 1#1: start worker process 23
+2021/09/22 12:12:04 [notice] 1#1: start worker process 24
+2021/09/22 12:12:04 [notice] 1#1: start worker process 25
+2021/09/22 12:12:09 [error] 25#25: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local"
+2021/09/22 12:12:09 [error] 25#25: *1 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 12:19:20 [error] 22#22: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local"
+2021/09/22 12:19:20 [error] 22#22: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 12:19:21 [error] 22#22: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local"
+2021/09/22 12:19:21 [error] 22#22: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 12:19:22 [error] 22#22: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local"
+2021/09/22 12:19:22 [error] 22#22: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.32.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.32.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 12:19:31 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/22 12:19:31 [notice] 24#24: gracefully shutting down
+2021/09/22 12:19:31 [notice] 25#25: gracefully shutting down
+2021/09/22 12:19:31 [notice] 24#24: exiting
+2021/09/22 12:19:31 [notice] 25#25: exiting
+2021/09/22 12:19:31 [notice] 25#25: exit
+2021/09/22 12:19:31 [notice] 24#24: exit
+2021/09/22 12:19:31 [notice] 22#22: gracefully shutting down
+2021/09/22 12:19:31 [notice] 23#23: gracefully shutting down
+2021/09/22 12:19:31 [notice] 23#23: exiting
+2021/09/22 12:19:31 [notice] 23#23: exit
+2021/09/22 12:19:31 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2021/09/22 12:19:31 [notice] 1#1: worker process 23 exited with code 0
+2021/09/22 12:19:31 [notice] 1#1: worker process 24 exited with code 0
+2021/09/22 12:19:31 [notice] 1#1: worker process 25 exited with code 0
+2021/09/22 12:19:31 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/22 12:20:24 [notice] 1#1: using the "epoll" event method
+2021/09/22 12:20:24 [notice] 1#1: nginx/1.21.3
+2021/09/22 12:20:24 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/22 12:20:24 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/22 12:20:24 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/22 12:20:24 [notice] 1#1: start worker processes
+2021/09/22 12:20:24 [notice] 1#1: start worker process 29
+2021/09/22 12:20:24 [notice] 1#1: start worker process 30
+2021/09/22 12:20:24 [notice] 1#1: start worker process 31
+2021/09/22 12:20:24 [notice] 1#1: start worker process 32
+2021/09/22 12:20:37 [error] 30#30: *2 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local"
+2021/09/22 12:20:37 [error] 30#30: *2 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 12:34:48 [error] 29#29: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local"
+2021/09/22 12:34:48 [error] 29#29: *6 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/22 13:31:19 [error] 29#29: *10 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /menu HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local"
+2021/09/22 13:31:19 [error] 29#29: *10 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
+2021/09/23 10:25:56 [error] 29#29: *434 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /editDocument.php HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/documents"
+2021/09/23 10:27:15 [error] 30#30: *450 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /editDocument.php HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/documents"
+2021/09/27 11:27:00 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/27 11:27:00 [notice] 29#29: gracefully shutting down
+2021/09/27 11:27:00 [notice] 31#31: gracefully shutting down
+2021/09/27 11:27:00 [notice] 29#29: exiting
+2021/09/27 11:27:00 [notice] 31#31: exiting
+2021/09/27 11:27:00 [notice] 29#29: exit
+2021/09/27 11:27:00 [notice] 31#31: exit
+2021/09/27 11:27:00 [notice] 32#32: gracefully shutting down
+2021/09/27 11:27:00 [notice] 32#32: exiting
+2021/09/27 11:27:00 [notice] 30#30: gracefully shutting down
+2021/09/27 11:27:00 [notice] 32#32: exit
+2021/09/27 11:27:00 [notice] 30#30: exiting
+2021/09/27 11:27:00 [notice] 30#30: exit
+2021/09/27 11:27:00 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2021/09/27 11:27:00 [notice] 1#1: worker process 29 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: worker process 30 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: worker process 31 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: worker process 32 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: exit
+2021/09/27 11:28:50 [notice] 1#1: using the "epoll" event method
+2021/09/27 11:28:50 [notice] 1#1: nginx/1.21.3
+2021/09/27 11:28:50 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/27 11:28:50 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/27 11:28:50 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/27 11:28:50 [notice] 1#1: start worker processes
+2021/09/27 11:28:50 [notice] 1#1: start worker process 23
+2021/09/27 11:28:50 [notice] 1#1: start worker process 24
+2021/09/27 11:28:50 [notice] 1#1: start worker process 25
+2021/09/27 11:28:50 [notice] 1#1: start worker process 26
+2021/09/27 11:29:44 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/27 11:29:44 [notice] 25#25: gracefully shutting down
+2021/09/27 11:29:44 [notice] 24#24: gracefully shutting down
+2021/09/27 11:29:44 [notice] 26#26: gracefully shutting down
+2021/09/27 11:29:44 [notice] 23#23: gracefully shutting down
+2021/09/27 11:29:44 [notice] 25#25: exiting
+2021/09/27 11:29:44 [notice] 24#24: exiting
+2021/09/27 11:29:44 [notice] 26#26: exiting
+2021/09/27 11:29:44 [notice] 23#23: exiting
+2021/09/27 11:29:44 [notice] 25#25: exit
+2021/09/27 11:29:44 [notice] 26#26: exit
+2021/09/27 11:29:44 [notice] 24#24: exit
+2021/09/27 11:29:44 [notice] 23#23: exit
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2021/09/27 11:29:44 [notice] 1#1: worker process 24 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2021/09/27 11:29:44 [notice] 1#1: worker process 25 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2021/09/27 11:29:44 [notice] 1#1: worker process 23 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2021/09/27 11:29:44 [notice] 1#1: worker process 26 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: exit
+2021/09/27 11:30:02 [notice] 1#1: using the "epoll" event method
+2021/09/27 11:30:02 [notice] 1#1: nginx/1.21.3
+2021/09/27 11:30:02 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/27 11:30:02 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/27 11:30:02 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/27 11:30:02 [notice] 1#1: start worker processes
+2021/09/27 11:30:02 [notice] 1#1: start worker process 22
+2021/09/27 11:30:02 [notice] 1#1: start worker process 23
+2021/09/27 11:30:02 [notice] 1#1: start worker process 24
+2021/09/27 11:30:02 [notice] 1#1: start worker process 25
+2021/09/27 11:50:39 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/27 11:50:39 [notice] 25#25: gracefully shutting down
+2021/09/27 11:50:39 [notice] 23#23: gracefully shutting down
+2021/09/27 11:50:39 [notice] 25#25: exiting
+2021/09/27 11:50:39 [notice] 23#23: exiting
+2021/09/27 11:50:39 [notice] 23#23: exit
+2021/09/27 11:50:39 [notice] 25#25: exit
+2021/09/27 11:50:39 [notice] 22#22: gracefully shutting down
+2021/09/27 11:50:39 [notice] 22#22: exiting
+2021/09/27 11:50:39 [notice] 22#22: exit
+2021/09/27 11:50:39 [notice] 24#24: gracefully shutting down
+2021/09/27 11:50:39 [notice] 24#24: exiting
+2021/09/27 11:50:39 [notice] 24#24: exit
+2021/09/27 11:50:39 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2021/09/27 11:50:39 [notice] 1#1: worker process 23 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: worker process 24 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: worker process 22 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: worker process 25 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: exit
+2021/09/27 11:51:14 [notice] 1#1: using the "epoll" event method
+2021/09/27 11:51:14 [notice] 1#1: nginx/1.21.3
+2021/09/27 11:51:14 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/27 11:51:14 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/27 11:51:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/27 11:51:14 [notice] 1#1: start worker processes
+2021/09/27 11:51:14 [notice] 1#1: start worker process 22
+2021/09/27 11:51:14 [notice] 1#1: start worker process 23
+2021/09/27 11:51:14 [notice] 1#1: start worker process 24
+2021/09/27 11:51:14 [notice] 1#1: start worker process 25
+>>>>>>> MVC-Only

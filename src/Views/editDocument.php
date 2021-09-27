@@ -1,19 +1,3 @@
-<?php
-namespace src;
-require_once "Save.php";
-
-$title = "Create";
-$buttonSaveName = "Create";
-$documentID = null;
-
-if(isset($_GET["id"]))
-{
-    $documentData = loadDocument($_GET["id"]);
-    $title = "Edit";
-    $buttonSaveName = "Save";
-    $documentID = $_GET["id"];
-}
-?>
 <html>
 <head>
     <title><?=$title?> document</title>
@@ -27,7 +11,7 @@ if(isset($_GET["id"]))
 </head>
 <body>
     <table>
-    <form method="GET" action="">
+    <form method="POST" action="">
         <tr>
             <td><paa>Name of organisation</paa></td>
             <td><input type="text" name="editDocOrganisation" value="<?=$documentData["organisation"]?>" placeholder="Name of organisation"></td>
@@ -82,11 +66,16 @@ if(isset($_GET["id"]))
         
         <tr>
             <td><button id="add" name="editDocumentSubmit" type="submit" value="<?=$documentID?>" ><?=$buttonSaveName?></button></td>
-            <td><a href="/documents">Back</a></td>
+            <td><a id="back" href="/documents">Back</a></td>
         </tr>
     </form>
     </table>
-    <p><? printErrors() ?></p>
+    <p><?
+    foreach($errors as $err)
+    {
+        echo "$err<br>";
+    }
+    ?></p>
 </body>
 </html>
 <!-- ================================================================= -->

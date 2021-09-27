@@ -1,5 +1,3 @@
-<?php namespace src; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +32,7 @@
         </td>
         
         <td>
-            <a id="add" href="/edit/document">+</a>
+            <a id="add" href="edit/document">+</a>
         </td>
     </tr>
     <tr >
@@ -68,16 +66,9 @@
             </tr>
 
             <?php
-                require_once "Save.php";
-                require_once "Functions.php";
-
-                foreach(scandir(SAVEPATHDOCUMENT) as $file_json)
+                foreach($documentList as $document)
                 {
-                    if(!isJSON($file_json))
-                        continue;
-
-                    $id = deleteExtensionJSON($file_json);
-                    $document = loadDocument($id);  
+                    $id = $document["id"];
             ?>
 
             <tr>

@@ -1,4 +1,3 @@
-<?php namespace src; ?>
 <html>
 <head>
     <title>Users</title>
@@ -65,16 +64,9 @@
             </tr>
 
             <?php
-                require_once "Save.php";
-                require_once "Functions.php";
-
-                foreach(scandir(SAVEPATHUSER) as $file_json)
+                foreach($userList as $user)
                 {
-                    if(!isJSON($file_json))
-                        continue;
-
-                    $id = deleteExtensionJSON($file_json);
-                    $user = loadUser($id);
+                    $id = $user["id"];
             ?>
 
             <tr>

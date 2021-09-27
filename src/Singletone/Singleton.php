@@ -1,5 +1,7 @@
 <?php
-namespace src;
+
+namespace Singleton;
+
 class Singleton
 {
     private static $instance = null;

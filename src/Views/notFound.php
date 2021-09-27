@@ -1,4 +1,3 @@
-<php? namespace src; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
