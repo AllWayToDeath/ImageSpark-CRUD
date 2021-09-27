@@ -6,6 +6,7 @@ use Controllers\DataController;
 use Views\View;
 use Models\DocumentModel;
 use Core\Router;
+use Validator\Validator;
 
 class DocumentController extends DataController
 {
@@ -64,7 +65,7 @@ class DocumentController extends DataController
         ];
 
         //Validation
-        $errors = static::validateDocumentData($docData);
+        $errors = Validator::validateDocumentData($docData);
 
         if(empty($errors))
         {
@@ -94,119 +95,5 @@ class DocumentController extends DataController
     {
         DocumentModel::deleteByID($_GET["id"]);
         header("location: /documents");
-    }
-
-    protected static function validateDocumentData($userData)
-    {
-        extract($userData);
-
-        $errors = array_merge(
-            static::validateTitleName($organisation, "Organisation")
-            ,static::validateTitleName($counteragent, "counteragent")
-            ,static::validateTitleName($signer, "signer")
-            ,static::validateDate($dateofcontract["start"])
-            ,static::validateDate($dateofcontract["finish"])
-            ,static::validateTitleName($objectofcontract, "objectofcontract")
-            ,static::validateCurrency($currency)
-            ,static::validateCost($costofcontract)
-            ,static::validateAdress($requisites["adress"])
-            ,static::validateINN($requisites["inn"])
-            ,static::validateAccount($requisites["chacc"])
-        );
-        return $errors;
-    }
-
-    /*
-    Validation functions
-    */
-
-    protected static function validateTitleName($name, $fieldName)
-    {
-        $errors = array();
-
-        if($name == null)
-        {
-            $errors []= "$fieldName is empty";
-        }
-        //Разрешить цифры и разобраться с регулярными выражениями
-        if(! preg_match("/^[a-zA-z]*$/", $name))
-        {
-            $errors []= "$fieldName contain a wrong symbol";
-        }
-        return $errors;
-    }
-
-    protected static function validateAccount($acc)
-    {
-        $errors = array();
-
-        if($acc == null)
-        {
-            $errors []= "Account is empty";
-        }
-
-        return $errors;
-    }
-
-    protected static function validateCurrency($currency)
-    {
-        $errors = array();
-
-        if($currency == null)
-        {
-            $errors []= "Currency is empty";
-        }
-
-        return $errors;
-    }
-    protected static function validateCost($cost)
-    {
-        $errors = array();
-
-        if($cost == null)
-        {
-            $errors []= "Cost is empty";
-        }
-        if(!filter_var($cost, FILTER_VALIDATE_INT))
-        {
-            $errors []= "Cost is wrong";
-        }
-        if($cost < 0)
-        {
-            $errors []= "Cost is low";
-        }
-
-        return $errors;
-    }
-
-    protected static function validateAdress($adress)
-    {
-        $errors = array();
-
-        if($adress == null)
-        {
-            $errors []= "Adress is empty";
-        }
-
-        return $errors;
-    }
-    protected static function validateINN($inn)
-    {
-        $errors = array();
-
-        if($inn == null)
-        {
-            $errors []= "INN is empty";
-        }
-        if(!filter_var($inn, FILTER_VALIDATE_INT))
-        {
-            $errors []= "INN is wrong";
-        }
-        if(strlen((string)$inn) != 12)
-        {
-            $errors []= "INN is wrong";
-        }
-
-        return $errors;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Views;
 
-use Singletone\Singleton;
+use Singleton\Singleton;
 
 class View extends Singleton {
     public static function render($template, $vars = [])

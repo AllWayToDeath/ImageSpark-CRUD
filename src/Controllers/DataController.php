@@ -43,33 +43,4 @@ abstract class DataController extends Controller
 
         return $result;
     }
-
-    protected static function validateDate($date)
-    {
-        extract($date);
-
-        $errors = array();
-
-        //Day
-        if($day == null)
-        {
-            $errors []= "Day is empty";
-        }
-
-        //Month
-        if($month == null)
-        {
-            $errors []= "Month is empty";
-        }
-        
-        //Year
-        if($year == null)
-        {
-            $errors []= "Year is empty";
-        }
-        
-        //add other logic here ...
-
-        return $errors;
-    }
 }

@@ -42,6 +42,8 @@ class Router extends Singleton
         {
             return $_POST[$name];
         }
+        
+        return null;
     }
 
     protected function getPath()

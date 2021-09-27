@@ -6,6 +6,7 @@ use Core\Router;
 use Controllers\DataController;
 use Models\UserModel;
 use Views\View;
+use Validator\Validator;
 
 class UserController extends DataController
 {
@@ -64,7 +65,7 @@ class UserController extends DataController
         ];
 
         //Validation
-        $errors = static::validateUserData($userData);
+        $errors = Validator::validateUserData($userData);
 
         if(count($errors) == 0)
         {
@@ -98,59 +99,5 @@ class UserController extends DataController
     {
         UserModel::deleteByID($_GET["id"]);
         header("location: /users");
-    }
-
-    protected static function validateUserData($userData)
-    {
-        extract($userData);
-        $errors = array();   
-        
-        $erLogin = static::validateLogin($login);
-        $erFName = static::validateName($fname, "First");
-        $erLName = static::validateName($lname, "Last");
-        $erBDay  = static::validateDate($bday);
-
-        $errors = array_merge(
-            $erLogin, 
-            $erFName, 
-            $erLName, 
-            $erBDay
-        );
-        return $errors;
-    }
-
-    protected static function validateLogin($login)
-    {
-        $errors = array();
-
-        //↓↓↓ No ARAB style! ↓↓↓
-        if($login == null)
-        {
-            $errors []= "Login is empty";
-        }
-
-        //add other logic here ...
-
-        return $errors;
-    }
-
-    protected static function validateName($name, $prefix = "")
-    {
-        $errors = array();
-        $postfix = ($prefix == "") ?
-             "Name": "$prefix name";
-
-        if($name == null)
-        {
-            $errors []= "$postfix is empty";
-        }
-        if(! preg_match("/^[a-zA-z]*$/", $name))
-        {
-            $errors []= "$postfix contain a wrong symbol";
-        }
-
-        //add other logic here ...
-
-        return $errors;
     }
 }
