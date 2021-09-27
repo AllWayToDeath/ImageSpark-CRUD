@@ -75,7 +75,7 @@ class Router extends Singleton
                                 ]
         ,"/edit/document"   => [
                                 "className" => "DocumentController",
-                                "method" => "edit"
+                                "method" => "editOrCreate"
                                 ]
         ,"/delete/document" => [
                                 "className" => "DocumentController",

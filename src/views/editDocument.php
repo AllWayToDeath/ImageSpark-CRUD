@@ -11,7 +11,7 @@
 </head>
 <body>
     <table>
-    <form method="POST" action="/edit/document">
+    <form method="POST" action="">
         <tr>
             <td><paa>Name of organisation</paa></td>
             <td><input type="text" name="editDocOrganisation" value="<?=$documentData["organisation"]?>" placeholder="Name of organisation"></td>

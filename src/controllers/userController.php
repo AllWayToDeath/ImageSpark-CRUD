@@ -1,10 +1,10 @@
 <?php
 
 require_once "functions.php";
-require_once "controller.php";
+require_once "dataController.php";
 require_once "models/userModel.php";
 
-class UserController extends Controller
+class UserController extends DataController
 {
     public function print()
     {
@@ -15,11 +15,11 @@ class UserController extends Controller
     protected static function create()
     {        
         $vararr = array(
-            "title"           => "Create"
-            ,"buttonSaveName" => "Create"
-            ,"userID"         => 1 + UserModel::getLastJsonID()
-            ,"checked"        => null
-            ,"userData"       => null
+            "title"           => "Create",
+            "buttonSaveName" => "Create",
+            "userID"         => 1 + UserModel::getLastJsonID(),
+            "checked"        => null,
+            "userData"       => null
         );
 
         return $vararr;
@@ -31,11 +31,11 @@ class UserController extends Controller
         $userData = $userModel->loadAndGetData($userID);
 
         $vararr = array(
-            "title"           => "Edit"
-            ,"buttonSaveName" => "Save"
-            ,"userID"         => $userID
-            ,"checked"        => $userData["active"]
-            ,"userData"       => $userData
+            "title"           => "Edit",
+            "buttonSaveName" => "Save",
+            "userID"         => $userID,
+            "checked"        => $userData["active"],
+            "userData"       => $userData
         );
 
         return $vararr;
@@ -43,58 +43,48 @@ class UserController extends Controller
 
     protected static function trySave($userID)
     {
+        $result = array();
+
         $userData = [
-            "login"   => Router::getVar("editUserLogin")
-            ,"fname"  => Router::getVar("editUserFname")
-            ,"lname"  => Router::getVar("editUserLname")
-            ,"bday"   => [
-                "day"    => Router::getVar("editUserBdayD")
-                ,"month" => Router::getVar("editUserBdayM")
-                ,"year"  => Router::getVar("editUserBdayY")
-                ]
-            ,"active" => getActiveStatus(Router::getVar("editUserActive"))
-            ,"id" => $userID
+            "login"   => Router::getVar("editUserLogin"),
+            "fname"  => Router::getVar("editUserFname"),
+            "lname"  => Router::getVar("editUserLname"),
+            "bday"   => [
+                "day"    => Router::getVar("editUserBdayD"),
+                "month" => Router::getVar("editUserBdayM"),
+                "year"  => Router::getVar("editUserBdayY")
+            ],
+            "active" => getActiveStatus(Router::getVar("editUserActive")),
+            "id" => $userID
         ];
 
         //Validation
         $errors = static::validateUserData($userData);
 
-        if(empty($errors))
+        if(count($errors) == 0)
         {
             $userModel = new UserModel();
             $userModel->setData($userData);
             $userModel->save();
         }
 
-        return $errors;
+        $result["data"] = $userData;
+        $result["errors"] = $errors;
+
+        return $result;
     }
 
     public function editOrCreate()
     {
-        $errors = array();
+        $result = parent::baseEditOrCreate("users", "editUserSubmit");
 
-        if(count($_POST) > 0)
-        {
-            $id = Router::getVar("editUserSubmit");
-            $errors = static::trySave($id);
+        $vararr = $result["vararr"];
+        $vararr["errors"] = $result["errors"];
 
-            if(count($errors) == 0)
-            {
-                header("location: /users");
-                return;
-            }
-        }
-        $vararr = array(); 
-        
-        if(isset($_GET["id"]))
+        if(isset($result["data"]))
         {
-            $vararr = static::edit($_GET["id"]);
+            $vararr["userData"] = $result["data"];
         }
-        else
-        {
-            $vararr = static::create();
-        }
-        $vararr["errors"] = $errors;
 
         View::render("editUser", $vararr);
     }
@@ -113,7 +103,7 @@ class UserController extends Controller
         $erLogin = static::validateLogin($login);
         $erFName = static::validateName($fname, "First");
         $erLName = static::validateName($lname, "Last");
-        $erBDay = static::validateDate($bday);
+        $erBDay  = static::validateDate($bday);
 
         $errors = array_merge(
             $erLogin, 
