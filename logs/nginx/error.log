@@ -405,3 +405,13 @@
 2021/09/27 11:51:14 [notice] 1#1: start worker process 24
 2021/09/27 11:51:14 [notice] 1#1: start worker process 25
 >>>>>>> MVC-Only
+2021/09/27 14:00:02 [notice] 1#1: using the "epoll" event method
+2021/09/27 14:00:02 [notice] 1#1: nginx/1.21.3
+2021/09/27 14:00:02 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/27 14:00:02 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/27 14:00:02 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/27 14:00:02 [notice] 1#1: start worker processes
+2021/09/27 14:00:02 [notice] 1#1: start worker process 23
+2021/09/27 14:00:02 [notice] 1#1: start worker process 24
+2021/09/27 14:00:02 [notice] 1#1: start worker process 25
+2021/09/27 14:00:02 [notice] 1#1: start worker process 26

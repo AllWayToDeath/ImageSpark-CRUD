@@ -3,9 +3,9 @@
 namespace Controllers;
 
 use Core\Router;
+use Core\View;
 use Controllers\DataController;
 use Models\UserModel;
-use Views\View;
 use Validator\Validator;
 
 class UserController extends DataController

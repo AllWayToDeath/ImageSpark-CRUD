@@ -3,7 +3,7 @@
 namespace Controllers;
 
 use Controllers\Controller;
-use Views\View;
+use Core\View;
 
 class CommonController extends Controller
 {

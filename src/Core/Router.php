@@ -5,7 +5,6 @@ namespace Core;
 use Controllers\CommonController;
 use Controllers\UserController;
 use Controllers\DocumentController;
-use Singleton\Singleton;
 
 class Router extends Singleton
 {
@@ -14,7 +13,7 @@ class Router extends Singleton
         $path = $this->getPath();
         $controller = null;
 
-        $controllerType = "CommonController";
+        $controllerType = CommonController::class;
         $methodName     = "notFound";
 
         foreach($this->routes as $outerWay => $innerWay)

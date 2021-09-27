@@ -1,8 +1,7 @@
 <?php
 
-namespace Views;
+namespace Core;
 
-use Singleton\Singleton;
 
 class View extends Singleton {
     public static function render($template, $vars = [])

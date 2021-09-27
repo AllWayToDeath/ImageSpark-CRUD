@@ -3,7 +3,7 @@
 namespace Controllers;
 
 use Controllers\DataController;
-use Views\View;
+use Core\View;
 use Models\DocumentModel;
 use Core\Router;
 use Validator\Validator;
