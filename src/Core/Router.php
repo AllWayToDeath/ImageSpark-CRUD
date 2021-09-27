@@ -1,9 +1,11 @@
 <?php
 
-require_once "singleton.php";
-require_once "controllers/commonController.php";
-require_once "controllers/userController.php";
-require_once "controllers/documentController.php";
+namespace Core;
+
+use Controllers\CommonController;
+use Controllers\UserController;
+use Controllers\DocumentController;
+use Singletone\Singleton;
 
 class Router extends Singleton
 {
@@ -54,32 +56,32 @@ class Router extends Singleton
 
     protected $routes = array(
         "/menu"             => [
-                                "className" => "CommonController",
+                                "className" => CommonController::class,
                                 "method" => "menu"
-                                ]
-        ,"/users"           => [
-                                "className" => "UserController",
+                            ],
+        "/users"           => [
+                                "className" => UserController::class,
                                 "method" => "print"
-                                ]
-        ,"/edit/user"       => [
-                                "className" => "UserController",
+                            ],
+        "/edit/user"       => [
+                                "className" => UserController::class,
                                 "method" => "editOrCreate"
-                                ]
-        ,"/delete/user"     => [
-                                "className" => "UserController",
+                            ],
+        "/delete/user"     => [
+                                "className" => UserController::class,
                                 "method" => "delete"
-                                ]
-        ,"/documents"       => [
-                                "className" => "DocumentController",
+                            ],
+        "/documents"       => [
+                                "className" => DocumentController::class,
                                 "method" => "print"
-                                ]
-        ,"/edit/document"   => [
-                                "className" => "DocumentController",
+                            ],
+        "/edit/document"   => [
+                                "className" => DocumentController::class,
                                 "method" => "editOrCreate"
-                                ]
-        ,"/delete/document" => [
-                                "className" => "DocumentController",
+                            ],
+        "/delete/document" => [
+                                "className" => DocumentController::class,
                                 "method" => "delete"
-                                ]
+                            ]
     );
 }

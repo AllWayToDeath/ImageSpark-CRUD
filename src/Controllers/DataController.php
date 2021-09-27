@@ -1,6 +1,9 @@
 <?php
 
-require_once "controller.php";
+namespace Controllers;
+
+use Controllers\Controller;
+use Core\Router;
 
 abstract class DataController extends Controller
 {
@@ -25,17 +28,17 @@ abstract class DataController extends Controller
         if(count($_POST) > 0)
         {
             $id = Router::getVar($submitName);
-            $temp = static::trySave($id);
-
-            $result["data"] = $temp["data"];
-            $result["errors"] = $temp["errors"];
-            unset($temp);
-
-            if(count($result["errors"]) == 0)
+            $temp = static::trySave($id);            
+        
+            if(count($temp["errors"]) == 0)
             {
                 header("location: /".$location);
                 return;
             }
+
+            $result["data"] = $temp["data"];
+            $result["errors"] = $temp["errors"];
+            unset($temp);
         }
 
         return $result;

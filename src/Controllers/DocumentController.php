@@ -1,8 +1,11 @@
 <?php
 
-require_once "functions.php";
-require_once "dataController.php";
-require_once "models/documentModel.php";
+namespace Controllers;
+
+use Controllers\DataController;
+use Views\View;
+use Models\DocumentModel;
+use Core\Router;
 
 class DocumentController extends DataController
 {
@@ -12,85 +15,13 @@ class DocumentController extends DataController
         View::render("documents", ["documentList" => $documentList]);
     }
 
-    public function old_edit()
-    {
-        $title = "Create";
-        $buttonSaveName = "Create";
-        $documentID = null;
-
-        $arrData = null;
-        $dataIsLoaded = false;
-
-        if(isset($_GET["id"]))
-        {
-            $title = "Edit";
-            $buttonSaveName = "Save";
-            $documentID = $_GET["id"];
-
-            $documentData = new DocumentModel();
-            $dataIsLoaded = $documentData->loadDataFromJSON($_GET["id"]);
-            
-            if($dataIsLoaded)
-            {
-                $arrData = $documentData->getData();
-            }
-        }
-
-        if(count($_POST) > 0)
-        {
-            $docData = [
-                "organisation"      => Router::getVar("editDocOrganisation")
-                ,"counteragent"     => Router::getVar("editDocCounterAgent")
-                ,"signer"           => Router::getVar("editDocSigner")
-                ,"dateofcontract"   => [
-                        "start"   => Router::getVar("editDocDateOfContractS")
-                        ,"finish" => Router::getVar("editDocDateOfContractF")
-                        ]
-                ,"objectofcontract" => Router::getVar("editDocObjectOfContract")
-                ,"currency"         => Router::getVar("editDocCurrency")
-                ,"costofcontract"   => Router::getVar("editDocCostOfContract")
-                ,"requisites"       => [
-                        "adress"  => Router::getVar("editDocReqAdress")
-                        ,"inn"    => Router::getVar("editDocReqINN")
-                        ,"chacc"  => Router::getVar("editDocReqChAcc")
-                        ]
-            ];
-
-            if(isset($_POST["editDocumentSubmit"]) && null != $_POST["editDocumentSubmit"])
-            {
-                $docData["id"] = $_POST["editDocumentSubmit"];
-            }
-            else{
-                $docData["id"] = 1 + getLastJsonID(UserModel::SAVEPATH, UserModel::IDINFONAME);
-            }
-
-            if(isComplete($docData))
-            {
-                $doc = new DocumentModel();
-                $doc->setData($docData);
-                $doc->save();
-                header("location: /documents");
-                return;
-            }
-        }
-        
-        $vararr = array(
-            "title"           => $title
-            ,"buttonSaveName" => $buttonSaveName
-            ,"documentID"     => $documentID
-            ,"documentData"   => $arrData
-        );
-
-        View::render("editDocument", $vararr);
-    }
-
     protected static function create()
     {        
         $vararr = array(
-            "title"           => "Create"
-            ,"buttonSaveName" => "Create"
-            ,"documentID"         => 1 + DocumentModel::getLastJsonID()
-            ,"documentData"       => null
+            "title"           => "Create",
+            "buttonSaveName" => "Create",
+            "documentID"         => 1 + DocumentModel::getLastJsonID(),
+            "documentData"       => null
         );
 
         return $vararr;
@@ -102,10 +33,10 @@ class DocumentController extends DataController
         $documentData = $documentModel->loadAndGetData($documentID);
 
         $vararr = array(
-            "title"           => "Edit"
-            ,"buttonSaveName" => "Save"
-            ,"documentID"         => $documentID
-            ,"documentData"       => $documentData
+            "title"           => "Edit",
+            "buttonSaveName" => "Save",
+            "documentID"         => $documentID,
+            "documentData"       => $documentData
         );
 
         return $vararr;
@@ -114,22 +45,22 @@ class DocumentController extends DataController
     protected static function trySave($documentID)
     {
         $docData = [
-            "organisation"      => Router::getVar("editDocOrganisation")
-            ,"counteragent"     => Router::getVar("editDocCounterAgent")
-            ,"signer"           => Router::getVar("editDocSigner")
-            ,"dateofcontract"   => [
-                    "start"   => Router::getVar("editDocDateOfContractS")
-                    ,"finish" => Router::getVar("editDocDateOfContractF")
-                    ]
-            ,"objectofcontract" => Router::getVar("editDocObjectOfContract")
-            ,"currency"         => Router::getVar("editDocCurrency")
-            ,"costofcontract"   => Router::getVar("editDocCostOfContract")
-            ,"requisites"       => [
-                    "adress"  => Router::getVar("editDocReqAdress")
-                    ,"inn"    => Router::getVar("editDocReqINN")
-                    ,"chacc"  => Router::getVar("editDocReqChAcc")
-                    ]
-            ,"id" => $documentID
+            "organisation"      => Router::getVar("editDocOrganisation"),
+            "counteragent"     => Router::getVar("editDocCounterAgent"),
+            "signer"           => Router::getVar("editDocSigner"),
+            "dateofcontract"   => [
+                    "start"   => Router::getVar("editDocDateOfContractS"),
+                    "finish" => Router::getVar("editDocDateOfContractF")
+                ],
+            "objectofcontract" => Router::getVar("editDocObjectOfContract"),
+            "currency"         => Router::getVar("editDocCurrency"),
+            "costofcontract"   => Router::getVar("editDocCostOfContract"),
+            "requisites"       => [
+                    "adress"  => Router::getVar("editDocReqAdress"),
+                    "inn"    => Router::getVar("editDocReqINN"),
+                    "chacc"  => Router::getVar("editDocReqChAcc")
+                ],
+            "id" => $documentID
         ];
 
         //Validation
@@ -184,6 +115,10 @@ class DocumentController extends DataController
         );
         return $errors;
     }
+
+    /*
+    Validation functions
+    */
 
     protected static function validateTitleName($name, $fieldName)
     {

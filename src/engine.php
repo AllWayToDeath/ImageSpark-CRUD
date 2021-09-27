@@ -1,9 +1,8 @@
 <?php
 
-/*
-Не стал заморачиваться с autoload на данном этапе
-*/
-require_once "router.php";
+require_once "vendor/autoload.php";
+
+use Core\Router;
 
 $router = Router::getInstance();
 $router->run();

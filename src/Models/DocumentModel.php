@@ -1,6 +1,8 @@
 <?php
 
-require_once "model.php";
+namespace Models;
+
+use Models\Model;
 
 class DocumentModel extends Model
 {

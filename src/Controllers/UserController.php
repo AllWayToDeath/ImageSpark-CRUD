@@ -1,11 +1,16 @@
 <?php
 
-require_once "functions.php";
-require_once "dataController.php";
-require_once "models/userModel.php";
+namespace Controllers;
+
+use Core\Router;
+use Controllers\DataController;
+use Models\UserModel;
+use Views\View;
 
 class UserController extends DataController
 {
+    protected $modelClass = UserModel::class;
+
     public function print()
     {
         $userList = UserModel::getAll();
@@ -54,7 +59,7 @@ class UserController extends DataController
                 "month" => Router::getVar("editUserBdayM"),
                 "year"  => Router::getVar("editUserBdayY")
             ],
-            "active" => getActiveStatus(Router::getVar("editUserActive")),
+            "active" => UserModel::getActiveStatus(Router::getVar("editUserActive")),
             "id" => $userID
         ];
 

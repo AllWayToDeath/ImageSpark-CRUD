@@ -215,3 +215,96 @@
 2021/09/22 13:31:19 [error] 29#29: *10 FastCGI sent in stderr: "Unable to open primary script: /var/www/engine.php (Permission denied)" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/menu"
 2021/09/23 10:25:56 [error] 29#29: *434 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /editDocument.php HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/documents"
 2021/09/23 10:27:15 [error] 30#30: *450 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 192.168.48.1, server: crud.local, request: "GET /editDocument.php HTTP/1.1", upstream: "fastcgi://192.168.48.2:9000", host: "crud.local", referrer: "http://crud.local/documents"
+2021/09/27 11:27:00 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/27 11:27:00 [notice] 29#29: gracefully shutting down
+2021/09/27 11:27:00 [notice] 31#31: gracefully shutting down
+2021/09/27 11:27:00 [notice] 29#29: exiting
+2021/09/27 11:27:00 [notice] 31#31: exiting
+2021/09/27 11:27:00 [notice] 29#29: exit
+2021/09/27 11:27:00 [notice] 31#31: exit
+2021/09/27 11:27:00 [notice] 32#32: gracefully shutting down
+2021/09/27 11:27:00 [notice] 32#32: exiting
+2021/09/27 11:27:00 [notice] 30#30: gracefully shutting down
+2021/09/27 11:27:00 [notice] 32#32: exit
+2021/09/27 11:27:00 [notice] 30#30: exiting
+2021/09/27 11:27:00 [notice] 30#30: exit
+2021/09/27 11:27:00 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2021/09/27 11:27:00 [notice] 1#1: worker process 29 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: worker process 30 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: worker process 31 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: worker process 32 exited with code 0
+2021/09/27 11:27:00 [notice] 1#1: exit
+2021/09/27 11:28:50 [notice] 1#1: using the "epoll" event method
+2021/09/27 11:28:50 [notice] 1#1: nginx/1.21.3
+2021/09/27 11:28:50 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/27 11:28:50 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/27 11:28:50 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/27 11:28:50 [notice] 1#1: start worker processes
+2021/09/27 11:28:50 [notice] 1#1: start worker process 23
+2021/09/27 11:28:50 [notice] 1#1: start worker process 24
+2021/09/27 11:28:50 [notice] 1#1: start worker process 25
+2021/09/27 11:28:50 [notice] 1#1: start worker process 26
+2021/09/27 11:29:44 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/27 11:29:44 [notice] 25#25: gracefully shutting down
+2021/09/27 11:29:44 [notice] 24#24: gracefully shutting down
+2021/09/27 11:29:44 [notice] 26#26: gracefully shutting down
+2021/09/27 11:29:44 [notice] 23#23: gracefully shutting down
+2021/09/27 11:29:44 [notice] 25#25: exiting
+2021/09/27 11:29:44 [notice] 24#24: exiting
+2021/09/27 11:29:44 [notice] 26#26: exiting
+2021/09/27 11:29:44 [notice] 23#23: exiting
+2021/09/27 11:29:44 [notice] 25#25: exit
+2021/09/27 11:29:44 [notice] 26#26: exit
+2021/09/27 11:29:44 [notice] 24#24: exit
+2021/09/27 11:29:44 [notice] 23#23: exit
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2021/09/27 11:29:44 [notice] 1#1: worker process 24 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2021/09/27 11:29:44 [notice] 1#1: worker process 25 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2021/09/27 11:29:44 [notice] 1#1: worker process 23 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/27 11:29:44 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2021/09/27 11:29:44 [notice] 1#1: worker process 26 exited with code 0
+2021/09/27 11:29:44 [notice] 1#1: exit
+2021/09/27 11:30:02 [notice] 1#1: using the "epoll" event method
+2021/09/27 11:30:02 [notice] 1#1: nginx/1.21.3
+2021/09/27 11:30:02 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/27 11:30:02 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/27 11:30:02 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/27 11:30:02 [notice] 1#1: start worker processes
+2021/09/27 11:30:02 [notice] 1#1: start worker process 22
+2021/09/27 11:30:02 [notice] 1#1: start worker process 23
+2021/09/27 11:30:02 [notice] 1#1: start worker process 24
+2021/09/27 11:30:02 [notice] 1#1: start worker process 25
+2021/09/27 11:50:39 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/27 11:50:39 [notice] 25#25: gracefully shutting down
+2021/09/27 11:50:39 [notice] 23#23: gracefully shutting down
+2021/09/27 11:50:39 [notice] 25#25: exiting
+2021/09/27 11:50:39 [notice] 23#23: exiting
+2021/09/27 11:50:39 [notice] 23#23: exit
+2021/09/27 11:50:39 [notice] 25#25: exit
+2021/09/27 11:50:39 [notice] 22#22: gracefully shutting down
+2021/09/27 11:50:39 [notice] 22#22: exiting
+2021/09/27 11:50:39 [notice] 22#22: exit
+2021/09/27 11:50:39 [notice] 24#24: gracefully shutting down
+2021/09/27 11:50:39 [notice] 24#24: exiting
+2021/09/27 11:50:39 [notice] 24#24: exit
+2021/09/27 11:50:39 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2021/09/27 11:50:39 [notice] 1#1: worker process 23 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: worker process 24 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: worker process 22 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: worker process 25 exited with code 0
+2021/09/27 11:50:39 [notice] 1#1: exit
+2021/09/27 11:51:14 [notice] 1#1: using the "epoll" event method
+2021/09/27 11:51:14 [notice] 1#1: nginx/1.21.3
+2021/09/27 11:51:14 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/27 11:51:14 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/27 11:51:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/27 11:51:14 [notice] 1#1: start worker processes
+2021/09/27 11:51:14 [notice] 1#1: start worker process 22
+2021/09/27 11:51:14 [notice] 1#1: start worker process 23
+2021/09/27 11:51:14 [notice] 1#1: start worker process 24
+2021/09/27 11:51:14 [notice] 1#1: start worker process 25

@@ -1,6 +1,9 @@
 <?php
 
-require_once "controller.php";
+namespace Controllers;
+
+use Controllers\Controller;
+use Views\View;
 
 class CommonController extends Controller
 {

@@ -1,5 +1,7 @@
 <?php
 
+namespace Singletone;
+
 class Singleton
 {
     private static $instance = null;

@@ -1,6 +1,6 @@
 <?php
 
-require_once "functions.php";
+namespace Models;
 
 class Model
 {
@@ -57,11 +57,11 @@ class Model
 
         foreach(scandir(static::SAVEPATH) as $fileName)
         {
-            if(!isJSON($fileName))
+            if(!static::isJSON($fileName))
                continue;
             
-            $id = deleteExtensionJSON($fileName);
-            $data = self::getLoadDataFromJSON($id, static::SAVEPATH);
+            $id = static::deleteExtensionJSON($fileName);
+            $data = static::getLoadDataFromJSON($id, static::SAVEPATH);
             $data["id"] = $id;
             $dataList []= $data;
         }
@@ -115,9 +115,37 @@ class Model
         $path = static::SAVEPATH.static::IDINFONAME;
         if(!file_exists($path))
         {
-            createIdInfo();
+            static::createIdInfo();
         }
         $last_id = file_get_contents($path);
         return $last_id;
+    }
+
+    protected static function deleteExtensionJSON(string $file)
+    {
+        //analog 'str_replace'
+        $len = strlen($file);
+        return substr($file, 0, $len-5);
+    }
+
+    protected static function isJSON($path)
+    {
+        if (is_dir($path))
+            return false;
+    
+        $is_json = false;
+        $ext = substr($path, -5);
+        if (".json" == $ext) {
+            $is_json = true;
+        }
+        return $is_json;
+    }
+
+    protected static function createIdInfo()
+    {
+        $last_id = 0;
+        $full_path = static::SAVEPATH . static::IDINFONAME;
+        var_dump($full_path);
+        file_put_contents($full_path, $last_id);
     }
 }
