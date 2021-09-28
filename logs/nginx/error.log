@@ -415,3 +415,123 @@
 2021/09/27 14:00:02 [notice] 1#1: start worker process 24
 2021/09/27 14:00:02 [notice] 1#1: start worker process 25
 2021/09/27 14:00:02 [notice] 1#1: start worker process 26
+2021/09/28 05:57:14 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/28 05:57:14 [notice] 26#26: gracefully shutting down
+2021/09/28 05:57:14 [notice] 26#26: exiting
+2021/09/28 05:57:14 [notice] 26#26: exit
+2021/09/28 05:57:14 [notice] 24#24: gracefully shutting down
+2021/09/28 05:57:14 [notice] 24#24: exiting
+2021/09/28 05:57:14 [notice] 24#24: exit
+2021/09/28 05:57:14 [notice] 25#25: gracefully shutting down
+2021/09/28 05:57:14 [notice] 25#25: exiting
+2021/09/28 05:57:14 [notice] 25#25: exit
+2021/09/28 05:57:14 [notice] 23#23: gracefully shutting down
+2021/09/28 05:57:14 [notice] 23#23: exiting
+2021/09/28 05:57:14 [notice] 23#23: exit
+2021/09/28 05:57:14 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2021/09/28 05:57:14 [notice] 1#1: worker process 24 exited with code 0
+2021/09/28 05:57:14 [notice] 1#1: worker process 25 exited with code 0
+2021/09/28 05:57:14 [notice] 1#1: worker process 26 exited with code 0
+2021/09/28 05:57:14 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/28 05:57:14 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2021/09/28 05:57:14 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2021/09/28 05:57:14 [notice] 1#1: worker process 23 exited with code 0
+2021/09/28 05:57:14 [notice] 1#1: exit
+2021/09/28 05:57:15 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:57:20 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:57:26 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:57:32 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:57:38 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:57:45 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:57:54 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:01 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:07 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:12 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:18 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:24 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:31 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:40 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:58:52 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:59:10 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 05:59:41 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:00:38 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:01:43 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:02:49 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:03:54 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:05:00 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:06:05 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:07:10 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:08:16 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:09:21 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:10:27 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:11:32 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:12:37 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:13:43 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:14:48 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:15:54 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:16:59 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:18:05 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:19:10 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:20:15 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:21:21 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:22:26 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:23:32 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:24:37 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:25:42 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:26:48 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:27:53 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:28:59 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:30:04 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:31:09 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:32:15 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:33:20 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:34:26 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:35:32 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:36:37 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:37:43 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:38:49 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:39:54 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:40:59 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:42:05 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:43:10 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:44:16 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:45:21 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:46:27 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:47:32 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:48:37 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/crud.conf:16
+2021/09/28 06:49:43 [notice] 1#1: using the "epoll" event method
+2021/09/28 06:49:43 [notice] 1#1: nginx/1.21.3
+2021/09/28 06:49:43 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/28 06:49:43 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/28 06:49:43 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/28 06:49:43 [notice] 1#1: start worker processes
+2021/09/28 06:49:43 [notice] 1#1: start worker process 21
+2021/09/28 06:49:43 [notice] 1#1: start worker process 22
+2021/09/28 06:49:43 [notice] 1#1: start worker process 23
+2021/09/28 06:49:43 [notice] 1#1: start worker process 24
+2021/09/28 06:49:55 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/09/28 06:49:55 [notice] 21#21: gracefully shutting down
+2021/09/28 06:49:55 [notice] 24#24: gracefully shutting down
+2021/09/28 06:49:55 [notice] 24#24: exiting
+2021/09/28 06:49:55 [notice] 22#22: gracefully shutting down
+2021/09/28 06:49:55 [notice] 22#22: exiting
+2021/09/28 06:49:55 [notice] 24#24: exit
+2021/09/28 06:49:55 [notice] 22#22: exit
+2021/09/28 06:49:55 [notice] 23#23: gracefully shutting down
+2021/09/28 06:49:55 [notice] 23#23: exiting
+2021/09/28 06:49:55 [notice] 23#23: exit
+2021/09/28 06:49:55 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2021/09/28 06:49:55 [notice] 1#1: worker process 22 exited with code 0
+2021/09/28 06:49:55 [notice] 1#1: worker process 23 exited with code 0
+2021/09/28 06:49:55 [notice] 1#1: worker process 24 exited with code 0
+2021/09/28 06:49:55 [notice] 1#1: signal 29 (SIGIO) received
+2021/09/28 06:50:16 [notice] 1#1: using the "epoll" event method
+2021/09/28 06:50:16 [notice] 1#1: nginx/1.21.3
+2021/09/28 06:50:16 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/09/28 06:50:16 [notice] 1#1: OS: Linux 5.4.0-81-generic
+2021/09/28 06:50:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/09/28 06:50:16 [notice] 1#1: start worker processes
+2021/09/28 06:50:16 [notice] 1#1: start worker process 23
+2021/09/28 06:50:16 [notice] 1#1: start worker process 24
+2021/09/28 06:50:16 [notice] 1#1: start worker process 25
+2021/09/28 06:50:16 [notice] 1#1: start worker process 26

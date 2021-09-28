@@ -13,7 +13,9 @@ class DocumentController extends DataController
     public function print()
     {
         $documentList = DocumentModel::getAll();
-        View::render("documents", ["documentList" => $documentList]);
+        //View::render("documents", ["documentList" => $documentList]);
+        $output = View::render("documents", ["documentList" => $documentList]);
+        echo $output;
     }
 
     protected static function create()
@@ -88,7 +90,14 @@ class DocumentController extends DataController
         $vararr["errors"] = $result["errors"];
         $vararr["documentData"] = $result["data"];
 
-        View::render("editDocument", $vararr);
+        /*if(isset($result["data"]))
+        {
+            $vararr["documentData"] = $result["data"];
+        }*/
+
+        //View::render("editDocument", $vararr);
+        $output = View::render("editDocument", $vararr);
+        echo $output;
     }
 
     public function delete()

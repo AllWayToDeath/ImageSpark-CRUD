@@ -15,7 +15,9 @@ class UserController extends DataController
     public function print()
     {
         $userList = UserModel::getAll();
-        View::render("users", ["userList" => $userList]);
+        //View::render("users", ["userList" => $userList]);
+        $output = View::render("users", ["userList" => $userList]);
+        echo $output;
     }
 
     protected static function create()
@@ -92,7 +94,8 @@ class UserController extends DataController
             $vararr["userData"] = $result["data"];
         }
 
-        View::render("editUser", $vararr);
+        $output = View::render("editUser", $vararr);
+        echo $output;
     }
 
     public function delete()
