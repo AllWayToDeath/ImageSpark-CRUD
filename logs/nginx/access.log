@@ -3461,3 +3461,5 @@
 172.30.0.1 - - [28/Sep/2021:13:12:56 +0000] "GET /favicon.ico HTTP/1.1" 200 25 "http://crud.local/menu" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
 172.30.0.1 - - [28/Sep/2021:13:19:10 +0000] "GET /menu HTTP/1.1" 200 15 "http://crud.local/documents" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
 172.30.0.1 - - [28/Sep/2021:13:19:10 +0000] "GET /favicon.ico HTTP/1.1" 200 15 "http://crud.local/menu" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+172.30.0.1 - - [28/Sep/2021:13:26:16 +0000] "GET /menu HTTP/1.1" 200 15 "http://crud.local/documents" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+172.30.0.1 - - [28/Sep/2021:13:26:16 +0000] "GET /favicon.ico HTTP/1.1" 200 15 "http://crud.local/menu" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
