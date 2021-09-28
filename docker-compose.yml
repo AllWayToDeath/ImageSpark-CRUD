@@ -18,3 +18,14 @@ services:
     build: ./images/php
     volumes:
       - ./src:/var/www
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
