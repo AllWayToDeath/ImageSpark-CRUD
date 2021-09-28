@@ -88,12 +88,11 @@ class DocumentController extends DataController
 
         $vararr = $result["vararr"];
         $vararr["errors"] = $result["errors"];
-        $vararr["documentData"] = $result["data"];
 
-        /*if(isset($result["data"]))
+        if(isset($result["data"]))
         {
             $vararr["documentData"] = $result["data"];
-        }*/
+        }
 
         //View::render("editDocument", $vararr);
         $output = View::render("editDocument", $vararr);
