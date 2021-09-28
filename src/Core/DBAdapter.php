@@ -18,7 +18,8 @@ class DBAdapter extends Singleton
             $this->pswd,
             $this->base
         );
-        if (!$this->connection) {
+        if(!$this->connection)
+        {
             die("Ошибка соединения");
         }
     }
@@ -30,9 +31,10 @@ class DBAdapter extends Singleton
 
     public static function execSQL(string $sql)
     {
-        $instance = self::getInstance();
-        $connection = $instance->DBAdapter::getConnection();
-        
+        /** @var DBAdapter */
+        $instance = DBAdapter::getInstance();
+        $connection = $instance->getConnection();
+
         $result = mysqli_query($connection, $sql);
         return $result;
     }

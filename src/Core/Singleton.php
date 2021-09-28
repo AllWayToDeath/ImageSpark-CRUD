@@ -4,7 +4,7 @@ namespace Core;
 
 class Singleton
 {
-    private static $instance = null;
+    protected static $instance = null;
 
     public static function getInstance(): Singleton
     {
