@@ -12,53 +12,41 @@ class DBModel
     */
     protected $tableName = "users";
     protected $idName = "user_id";
-    protected $columnsName = array();
+
+    protected $data;
 
     public function __construct()
     {
-        $this->columnsName = array(
-            $this->idName,
-            //"default_column"
-            
-            "user_id",
-            "login",
-            "first_name",
-            "list_name",
-            "bday",
-            "active"
-            
-        );
+
     }
 
     public function getByID($id)
     {
         $query = "
-            select ".$this->getSQLColumnsName()."
-            from ".$this->tableName."
-            where id = ".$this->idName."
+            SELECT *
+            FROM ".$this->tableName."
+            WHERE id = ".$this->idName."
         ";
         //$result = <...>execSQL($query);
     }
-    public function list()//:array
+    public function list():array
     {
-        $dataList = array();
-
         $query = "
-            select ".$this->getSQLColumnsName()."
-            from ".$this->tableName."
+            SELECT *
+            FROM ".$this->tableName."
         ";
 
-        //** @var DBAdapter */
-        /*$inst = DBAdapter::getInstance();
-        $result = $inst->execSQL($query);
-        $dataList = mysqli_fetch_array($result);*/
-
-        $result = DBAdapter::execSQL($query);
-        $dataList = null;
+        $resultSQL = DBAdapter::execSQL($query);
         
-        if($result != false)
+        if($resultSQL == false)
         {
-            $dataList = mysqli_fetch_array($result);
+            return null;
+        }
+        $dataList = array();
+
+        foreach(mysqli_fetch_array($resultSQL) as $user)
+        {
+            $dataList []= $user;
         }
 
         return $dataList;
@@ -88,6 +76,8 @@ class DBModel
 
         foreach($this->columnsName as $item)
         {
+            var_dump($item);
+
             $sqlColName .= (string)$item.
             ($curId != $maxId) ? "," : "";
             $curId++;
