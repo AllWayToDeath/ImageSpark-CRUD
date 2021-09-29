@@ -15,9 +15,6 @@ class UserController extends DataController
     public function print()
     {
         $userList = UserModel::getAll();
-        //var_dump($userList);
-
-
         //View::render("users", ["userList" => $userList]);
         $output = View::render("users", ["userList" => $userList]);
         echo $output;
@@ -52,8 +49,6 @@ class UserController extends DataController
 
     protected static function trySave($userID)
     {
-        $result = array();
-
         $userData = [
             "login"   => Router::getVar("editUserLogin"),
             "fname"  => Router::getVar("editUserFname"),
@@ -67,7 +62,6 @@ class UserController extends DataController
             "id" => $userID
         ];
 
-        //Validation
         $errors = Validator::validateUserData($userData);
 
         if(count($errors) == 0)
@@ -80,11 +74,8 @@ class UserController extends DataController
             {
                 UserModel::update($userID, $userData);
             }
-
-            // $userModel = new UserModel();
-            // $userModel->setData($userData);
-            // $userModel->save();
         }
+        
 
         $result["data"] = $userData;
         $result["errors"] = $errors;
@@ -94,63 +85,6 @@ class UserController extends DataController
 
     public function editOrCreate()
     {
-
-        if(isset($_GET["id"]))
-        {   
-            $userID = $_GET["id"];
-            $userData = UserModel::getByID($userID);
-            // var_dump($userData);
-            // die("I am DIE!");
-
-            $vararr = array(
-                "title"           => "Edit",
-                "buttonSaveName" => "Save",
-                "userID"         => $userID,
-                "checked"        => $userData["active"],
-                "userData"       => $userData
-            );
-
-            //$result["vararr"] = static::edit($_GET["id"]);
-        }
-        else
-        {
-            $vararr = array(
-                "title"           => "Create",
-                "buttonSaveName" => "Create",
-                "checked"        => null,
-                "userData"       => null
-            );
-            //$result["vararr"] = static::create();
-        }
-
-        if(count($_POST) > 0)
-        {
-            $id = Router::getVar("editUserSubmit");
-            $temp = static::trySave($id);            
-        
-            if(count($temp["errors"]) == 0)
-            {
-                header("location: /users");
-                return;
-            }
-
-            $vararr["data"] = $temp["data"];
-            $vararr["errors"] = $temp["errors"];
-            unset($temp);
-        }
-
-        if(isset($result["data"]))
-        {
-            $vararr["userData"] = $result["data"];
-        }
-
-        $output = View::render("editUser", $vararr);
-        echo $output;
-        
-        //$vararr = $result["vararr"];
-        //$vararr["errors"] = $result["errors"];
-
-        /*
         $result = parent::baseEditOrCreate("users", "editUserSubmit");
 
         $vararr = $result["vararr"];
@@ -163,7 +97,6 @@ class UserController extends DataController
 
         $output = View::render("editUser", $vararr);
         echo $output;
-        */
     }
 
     public function delete()

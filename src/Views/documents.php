@@ -68,7 +68,14 @@
             <?php
                 foreach($documentList as $document)
                 {
-                    $id = $document["id"];
+                    $id = $document["document_id"];
+
+                    $document["dateofcontract"]["start"] = $document["dateofcontract_start"];
+                    $document["dateofcontract"]["finish"] = $document["dateofcontract_finish"];
+
+                    $document["requisites"]["address"] = $document["req_address"];
+                    $document["requisites"]["inn"] = $document["req_inn"];
+                    $document["requisites"]["chacc"] = $document["req_chacc"];
             ?>
 
             <tr>
@@ -92,7 +99,7 @@
                     <p><?=$document["costofcontract"];?><?=$document["currency"];?></p>
                 </td>
                 <td>
-                    <p><?=$document["requisites"]["adress"];?></p>
+                    <p><?=$document["requisites"]["address"];?></p>
                     <p><?=$document["requisites"]["inn"];?></p>
                     <p><?=$document["requisites"]["chacc"];?></p>
                 </td>

@@ -57,7 +57,7 @@ class DocumentController extends DataController
             "currency"         => Router::getVar("editDocCurrency"),
             "costofcontract"   => Router::getVar("editDocCostOfContract"),
             "requisites"       => [
-                    "adress"  => Router::getVar("editDocReqAdress"),
+                    "address"  => Router::getVar("editDocReqaddress"),
                     "inn"    => Router::getVar("editDocReqINN"),
                     "chacc"  => Router::getVar("editDocReqChAcc")
                 ],
@@ -77,80 +77,29 @@ class DocumentController extends DataController
             {
                 DocumentModel::update($documentID, $docData);
             }
-            // $docModel = new DocumentModel();
-            // $docModel->setData($docData);
-            // $docModel->save();
         }
 
         $result["data"] = $docData;
         $result["errors"] = $errors;
 
-        return $errors;
+        return $result;
     }
 
     public function editOrCreate()
     {
-        if(isset($_GET["id"]))
-        {   
-            $documentID = $_GET["id"];
-            $documentData = DocumentModel::getByID($documentID);
+        $result = parent::baseEditOrCreate("documents", "editDocumentSubmit");
 
-            $vararr = array(
-                "title"           => "Edit",
-                "buttonSaveName" => "Save",
-                "documentID"         => $documentID,
-                "documentData"       => $documentData
-            );
-
-            //$result["vararr"] = static::edit($_GET["id"]);
-        }
-        else
-        {
-            $vararr = array(
-                "title"           => "Create",
-                "buttonSaveName" => "Create",
-                "documentData"       => null
-            );
-            //$result["vararr"] = static::create();
-        }
-
-        if(count($_POST) > 0)
-        {
-            $id = Router::getVar("editDocumentSubmit");
-            $temp = static::trySave($id);            
-        
-            if(count($temp["errors"]) == 0)
-            {
-                header("location: /documents");
-                return;
-            }
-
-            $vararr["data"] = $temp["data"];
-            $vararr["errors"] = $temp["errors"];
-            unset($temp);
-        }
+        $vararr = $result["vararr"];
+        $vararr["errors"] = $result["errors"];
 
         if(isset($result["data"]))
         {
             $vararr["documentData"] = $result["data"];
         }
 
+        //View::render("editDocument", $vararr);
         $output = View::render("editDocument", $vararr);
         echo $output;
-
-        // $result = parent::baseEditOrCreate("documents", "editDocumentSubmit");
-
-        // $vararr = $result["vararr"];
-        // $vararr["errors"] = $result["errors"];
-
-        // if(isset($result["data"]))
-        // {
-        //     $vararr["documentData"] = $result["data"];
-        // }
-
-        // //View::render("editDocument", $vararr);
-        // $output = View::render("editDocument", $vararr);
-        // echo $output;
     }
 
     public function delete()

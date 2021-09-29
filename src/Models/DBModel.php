@@ -5,13 +5,8 @@ use Core\DBAdapter;
 
 class DBModel
 {
-    /*
-    protected $tableName = "default";
-    protected $idName = "default_id";
-    protected $columnsName = array();
-    */
-    protected static $tableName = "users";
-    protected static $idName = "user_id";
+    protected static $tableName = "default";
+    protected static $idName = "default_id";
 
     protected $data;
 
@@ -28,9 +23,6 @@ class DBModel
             WHERE ".static::$idName."=".$id."
         ";
         $result = DBAdapter::execSQL($query);
-
-        // var_dump($query);
-        // die("I am DIE!");
         
         if(!$result)
         {
@@ -54,15 +46,10 @@ class DBModel
         $dataList = array();
         $numRows = mysqli_num_rows($resultSQL);
 
-        // var_dump($resultSQL);
-        // echo "<br>";
-        // var_dump(mysqli_fetch_array($resultSQL));
-
         for($i = 0; $i < $numRows; $i++)
         {
             $dataList []= mysqli_fetch_array($resultSQL);
         }
-
         return $dataList;
     }
     
@@ -78,8 +65,6 @@ class DBModel
             VALUES
             (".$dynamicQueryPart["values"].")
         ";
-        //var_dump($query);
-        //die("Debug");
         DBAdapter::execSQL($query);
     }
     public static function update($id, $data)

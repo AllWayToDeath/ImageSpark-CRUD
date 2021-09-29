@@ -52,8 +52,8 @@
             <td></td>
         </tr>
         <tr>
-            <td><paa>Adress</paa></td>
-            <td><input type="text" name="editDocReqAdress" value="<?=$documentData["requisites"]["adress"]?>" placeholder="Wall Street, 8a"></td>
+            <td><paa>address</paa></td>
+            <td><input type="text" name="editDocReqaddress" value="<?=$documentData["requisites"]["address"]?>" placeholder="Wall Street, 8a"></td>
         </tr>
         <tr>
             <td><paa>INN</paa></td>

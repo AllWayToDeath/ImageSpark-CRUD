@@ -9,7 +9,6 @@ abstract class DataController extends Controller
 {
     abstract protected static function create();
     abstract protected static function edit($id);
-    abstract protected static function trySave($id);
 
     public function baseEditOrCreate(string $location, string $submitName)
     {
@@ -42,5 +41,13 @@ abstract class DataController extends Controller
         }
 
         return $result;
+    }
+
+    protected static function trySave($id)
+    {
+        return array(
+            "errors" => "",
+            "some" => $id
+        );
     }
 }

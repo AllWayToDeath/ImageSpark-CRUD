@@ -78,6 +78,8 @@
                         "year" => $tmpDate[0]
                     );
                     unset($tmpDate);
+
+                    $user["active"] = ($user["active"] == 0) ? "No" : "Yes";
             ?>
 
             <tr>

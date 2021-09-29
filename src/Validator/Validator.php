@@ -36,7 +36,7 @@ class Validator
             static::validateTitleName($objectofcontract, "objectofcontract"),
             static::validateCurrency($currency),
             static::validateCost($costofcontract),
-            static::validateAdress($requisites["adress"]),
+            static::validateaddress($requisites["address"]),
             static::validateINN($requisites["inn"]),
             static::validateAccount($requisites["chacc"])
         );
@@ -45,7 +45,10 @@ class Validator
 
     protected static function validateDate($date)
     {
-        extract($date);
+        //extract($date);
+        $day = 0;
+        $month = 0;
+        $year = 0;
 
         $errors = array();
 
@@ -166,13 +169,13 @@ class Validator
         return $errors;
     }
 
-    protected static function validateAdress($adress)
+    protected static function validateaddress($address)
     {
         $errors = array();
 
-        if($adress == null)
+        if($address == null)
         {
-            $errors []= "Adress is empty";
+            $errors []= "address is empty";
         }
 
         return $errors;
