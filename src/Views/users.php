@@ -64,9 +64,18 @@
             </tr>
 
             <?php
+                //var_dump($userList);
                 foreach($userList as $user)
                 {
-                    $id = $user["id"];
+                    $id = $user["user_id"];
+                    //var_dump($user["bday"]);
+
+                    $tmpDate = explode("-", $user["bday"]);
+                    $user["bday"] = array(
+                        "day" => $tmpDate[2],
+                        "month" => $tmpDate[1],
+                        "year" => $tmpDate[0]
+                    );
             ?>
 
             <tr>
@@ -74,10 +83,10 @@
                     <p><?=$user["login"];?></p>
                 </td>
                 <td>
-                    <p><?=$user["fname"];?></p>
+                    <p><?=$user["first_name"];?></p>
                 </td>
                 <td>
-                    <p><?=$user["lname"];?></p>
+                    <p><?=$user["last_name"];?></p>
                 </td>
                 <td>
                     <p><?=$user["bday"]["day"];?>.<?=$user["bday"]["month"];?>.<?=$user["bday"]["year"];?></p>

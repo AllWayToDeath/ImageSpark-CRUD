@@ -92,9 +92,9 @@ $dModel->update(2, [
 ]);
 */
 
-$dModel->delete(3);
+//$dModel->delete(3);
 
-return;
+//return;
 
 /*==========|Конец отладочного кода|==========*/
 

@@ -145,7 +145,7 @@ class Model
     {
         $last_id = 0;
         $full_path = static::SAVEPATH . static::IDINFONAME;
-        var_dump($full_path);
+        //var_dump($full_path);
         file_put_contents($full_path, $last_id);
     }
 }

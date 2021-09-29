@@ -10,8 +10,8 @@ class DBModel
     protected $idName = "default_id";
     protected $columnsName = array();
     */
-    protected $tableName = "users";
-    protected $idName = "user_id";
+    protected static $tableName = "users";
+    protected static $idName = "user_id";
 
     protected $data;
 
@@ -20,20 +20,26 @@ class DBModel
 
     }
 
-    public function getByID($id)
+    public static function getByID($id)
     {
         $query = "
             SELECT *
-            FROM ".$this->tableName."
-            WHERE id = ".$this->idName."
+            FROM ".static::$tableName."
+            WHERE id = ".$id."
         ";
-        //$result = <...>execSQL($query);
+        $result = DBAdapter::execSQL($query);
+        
+        if(!$result)
+        {
+            $result = null;
+        }
+        return $result;
     }
-    public function list():array
+    public static function getAll():array
     {
         $query = "
             SELECT *
-            FROM ".$this->tableName."
+            FROM ".static::$tableName."
         ";
 
         $resultSQL = DBAdapter::execSQL($query);
@@ -43,27 +49,31 @@ class DBModel
             return null;
         }
         $dataList = array();
+        $numRows = mysqli_num_rows($resultSQL);
 
-        foreach(mysqli_fetch_array($resultSQL) as $user)
+        // var_dump($resultSQL);
+        // echo "<br>";
+        // var_dump(mysqli_fetch_array($resultSQL));
+
+
+        //Плохо-код (исправить)
+
+        for($i = 0; $i < $numRows; $i++)
         {
-            $dataList []= $user;
+            $dataList []= mysqli_fetch_array($resultSQL);
         }
 
         return $dataList;
     }
-    public function save($data)
+    public static function create($data)
     {
 
     }
-    public function create($data)
+    public static function update($id, $data)
     {
 
     }
-    public function update($id, $data)
-    {
-
-    }
-    public function delete($id)
+    public static function delete($id)
     {
 
     }
@@ -76,7 +86,7 @@ class DBModel
 
         foreach($this->columnsName as $item)
         {
-            var_dump($item);
+            //var_dump($item);
 
             $sqlColName .= (string)$item.
             ($curId != $maxId) ? "," : "";

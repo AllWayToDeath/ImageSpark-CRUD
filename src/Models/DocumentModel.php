@@ -8,13 +8,13 @@ class DocumentModel extends DBModel
 {
     public const SAVEPATH = "./data/documents/";
 
-    protected $tableName = "documents";
-    protected $idName = "document_id";
+    protected static $tableName = "documents";
+    protected static $idName = "document_id";
 
-    public function create($data)
+    public static function create($data)
     {
         $query = "
-            INSERT INTO ".$this->tableName."
+            INSERT INTO ".static::$tableName."
             (
                 organisation,
                 counteragent,
@@ -50,10 +50,10 @@ class DocumentModel extends DBModel
         // var_dump(mysqli_error($conn));
     }
 
-    public function update($id, $data)
+    public static function update($id, $data)
     {
         $query = "
-            UPDATE ".$this->tableName."
+            UPDATE ".static::$tableName."
             SET
             organisation = \"".$data["organisation"]."\",
             counteragent = \"".$data["counteragent"]."\",
@@ -78,10 +78,10 @@ class DocumentModel extends DBModel
         // var_dump(mysqli_error($conn));
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
         $query = "
-            DELETE FROM ".$this->tableName."
+            DELETE FROM ".static::$tableName."
             WHERE document_id=".$id.";
         ";
         DBAdapter::execSQL($query);

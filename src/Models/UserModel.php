@@ -16,13 +16,13 @@ class UserModel extends DBModel
     }
     /*===================================================*/
 
-    protected $tableName = "users";
-    protected $idName = "user_id";
+    protected static $tableName = "users";
+    protected static $idName = "user_id";
 
-    public function create($data)
+    public static function create($data)
     {
         $query = "
-            INSERT INTO ".$this->tableName."
+            INSERT INTO ".self::$tableName."
             (login, first_name, last_name, bday, active)
             VALUES(
                 \"".$data["login"]."\",
@@ -42,31 +42,10 @@ class UserModel extends DBModel
         //var_dump($query);
     }
 
-    public function update($id, $data)
+    public static function update($id, $data)
     {
-        /* // Нахер надо...
-        $changeStrings = array();
-
-        if(isset($data["login"]))
-        {
-            $changeString []= "login = \"".$data["login"]."\"";
-        }
-
-        $changeString = "";
-
-        $curLine = 1;
-        foreach($changeStrings as $line)
-        {
-            $changeString .= $line;
-            if($curLine != count($changeStrings))
-            {
-                $changeString .= ",";
-            }
-        }
-        */
-
         $query = "
-            UPDATE ".$this->tableName."
+            UPDATE ".static::$tableName."
             SET
             login = \"".$data["login"]."\",
             first_name = \"".$data["fname"]."\",
@@ -78,10 +57,10 @@ class UserModel extends DBModel
         DBAdapter::execSQL($query);
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
         $query = "
-            DELETE FROM ".$this->tableName."
+            DELETE FROM ".static::$tableName."
             WHERE user_id=".$id.";
         ";
         DBAdapter::execSQL($query);
