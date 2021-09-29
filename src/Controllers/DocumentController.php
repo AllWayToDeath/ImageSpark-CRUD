@@ -4,8 +4,8 @@ namespace Controllers;
 
 use Controllers\DataController;
 use Core\View;
-use Models\DocumentModel;
 use Core\Router;
+use Models\DocumentModel;
 use Validator\Validator;
 
 class DocumentController extends DataController
@@ -23,7 +23,6 @@ class DocumentController extends DataController
         $vararr = array(
             "title"           => "Create",
             "buttonSaveName" => "Create",
-            "documentID"         => 1 + DocumentModel::getLastJsonID(),
             "documentData"       => null
         );
 
@@ -32,8 +31,7 @@ class DocumentController extends DataController
 
     protected static function edit($documentID)
     {
-        $documentModel = new DocumentModel();
-        $documentData = $documentModel->loadAndGetData($documentID);
+        $documentData = DocumentModel::getByID($documentID);
 
         $vararr = array(
             "title"           => "Edit",
@@ -71,9 +69,17 @@ class DocumentController extends DataController
 
         if(empty($errors))
         {
-            $docModel = new DocumentModel();
-            $docModel->setData($docData);
-            $docModel->save();
+            if($documentID == null)
+            {
+                DocumentModel::create($docData);
+            }
+            else
+            {
+                DocumentModel::update($documentID, $docData);
+            }
+            // $docModel = new DocumentModel();
+            // $docModel->setData($docData);
+            // $docModel->save();
         }
 
         $result["data"] = $docData;
@@ -84,24 +90,72 @@ class DocumentController extends DataController
 
     public function editOrCreate()
     {
-        $result = parent::baseEditOrCreate("documents", "editDocumentSubmit");
+        if(isset($_GET["id"]))
+        {   
+            $documentID = $_GET["id"];
+            $documentData = DocumentModel::getByID($documentID);
 
-        $vararr = $result["vararr"];
-        $vararr["errors"] = $result["errors"];
+            $vararr = array(
+                "title"           => "Edit",
+                "buttonSaveName" => "Save",
+                "documentID"         => $documentID,
+                "documentData"       => $documentData
+            );
+
+            //$result["vararr"] = static::edit($_GET["id"]);
+        }
+        else
+        {
+            $vararr = array(
+                "title"           => "Create",
+                "buttonSaveName" => "Create",
+                "documentData"       => null
+            );
+            //$result["vararr"] = static::create();
+        }
+
+        if(count($_POST) > 0)
+        {
+            $id = Router::getVar("editDocumentSubmit");
+            $temp = static::trySave($id);            
+        
+            if(count($temp["errors"]) == 0)
+            {
+                header("location: /documents");
+                return;
+            }
+
+            $vararr["data"] = $temp["data"];
+            $vararr["errors"] = $temp["errors"];
+            unset($temp);
+        }
 
         if(isset($result["data"]))
         {
             $vararr["documentData"] = $result["data"];
         }
 
-        //View::render("editDocument", $vararr);
         $output = View::render("editDocument", $vararr);
         echo $output;
+
+        // $result = parent::baseEditOrCreate("documents", "editDocumentSubmit");
+
+        // $vararr = $result["vararr"];
+        // $vararr["errors"] = $result["errors"];
+
+        // if(isset($result["data"]))
+        // {
+        //     $vararr["documentData"] = $result["data"];
+        // }
+
+        // //View::render("editDocument", $vararr);
+        // $output = View::render("editDocument", $vararr);
+        // echo $output;
     }
 
     public function delete()
     {
-        DocumentModel::deleteByID($_GET["id"]);
+        DocumentModel::delete($_GET["id"]);
         header("location: /documents");
     }
 }

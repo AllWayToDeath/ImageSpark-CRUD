@@ -55,9 +55,6 @@ class DBModel
         // echo "<br>";
         // var_dump(mysqli_fetch_array($resultSQL));
 
-
-        //Плохо-код (исправить)
-
         for($i = 0; $i < $numRows; $i++)
         {
             $dataList []= mysqli_fetch_array($resultSQL);
@@ -67,7 +64,8 @@ class DBModel
     }
     public static function create($data)
     {
-
+        /*Переделать с использованием подготовленных запросов*/
+        
     }
     public static function update($id, $data)
     {
