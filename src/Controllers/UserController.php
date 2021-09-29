@@ -99,6 +99,8 @@ class UserController extends DataController
         {   
             $userID = $_GET["id"];
             $userData = UserModel::getByID($userID);
+            // var_dump($userData);
+            // die("I am DIE!");
 
             $vararr = array(
                 "title"           => "Edit",

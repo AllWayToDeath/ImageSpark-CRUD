@@ -5,6 +5,15 @@
     <link rel="stylesheet" href="../../styles/styleButtonsA.css">
 </head>
 <body>
+    <?php
+        $tmpDate = explode("-", $userData["bday"]);
+        $userData["bday"] = array(
+            "day" => $tmpDate[2],
+            "month" => $tmpDate[1],
+            "year" => $tmpDate[0]
+        );
+        unset($tmpDate);
+    ?>
     <form method="POST" action="">
         <input type="text" name="editUserLogin" value="<?=$userData["login"]?>" placeholder="Login"><br>
         <input type="text" name="editUserFname" value="<?=$userData["fname"]?>" placeholder="1-st Name"><br>

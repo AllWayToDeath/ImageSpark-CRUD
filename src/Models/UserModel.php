@@ -19,7 +19,7 @@ class UserModel extends DBModel
     protected static $tableName = "users";
     protected static $idName = "user_id";
 
-    public static function create($data)
+    /*public static function create($data)
     {
         $query = "
             INSERT INTO ".self::$tableName."
@@ -40,8 +40,8 @@ class UserModel extends DBModel
 
         //var_dump(mysqli_error($conn));
         //var_dump($query);
-    }
-
+    }*/
+    /*
     public static function update($id, $data)
     {
         $query = "
@@ -56,7 +56,8 @@ class UserModel extends DBModel
         ";
         DBAdapter::execSQL($query);
     }
-
+    */
+    /*
     public static function delete($id)
     {
         $query = "
@@ -64,5 +65,23 @@ class UserModel extends DBModel
             WHERE user_id=".$id.";
         ";
         DBAdapter::execSQL($query);
+    }
+    */
+
+    /*Функции конвертации данных*/
+    public static function convertDataToSQLData($data)
+    {
+        $sqlData = array();
+        $sqlDate = parent::convertDateToSQLDate($data["bday"]);
+
+        $sqlData []= array("login", "\"".$data["login"]."\"");
+        $sqlData []= array("fname", "\"".$data["fname"]."\"");
+        $sqlData []= array("lname", "\"".$data["lname"]."\"");
+        $sqlData []= array("bday", "'".$sqlDate."'");
+
+        $active = ($data["active"] == "No") ? 0 : 1;
+        $sqlData []= array("active", $active);
+
+        return $sqlData;
     }
 }

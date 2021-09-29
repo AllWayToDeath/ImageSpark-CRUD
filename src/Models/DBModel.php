@@ -25,15 +25,18 @@ class DBModel
         $query = "
             SELECT *
             FROM ".static::$tableName."
-            WHERE id = ".$id."
+            WHERE ".static::$idName."=".$id."
         ";
         $result = DBAdapter::execSQL($query);
+
+        // var_dump($query);
+        // die("I am DIE!");
         
         if(!$result)
         {
-            $result = null;
+            return null;
         }
-        return $result;
+        return mysqli_fetch_array($result);
     }
     public static function getAll():array
     {
@@ -62,34 +65,102 @@ class DBModel
 
         return $dataList;
     }
+    
     public static function create($data)
     {
-        /*Переделать с использованием подготовленных запросов*/
-        
+        $sqlData = static::convertDataToSQLData($data);
+        /*TODO: Переделать с использованием подготовленных запросов*/
+        $dynamicQueryPart = static::getQueryPartForCreate($sqlData);
+
+        $query = "
+            INSERT INTO ".self::$tableName."
+            (".$dynamicQueryPart["fields"].")
+            VALUES
+            (".$dynamicQueryPart["values"].")
+        ";
+        //var_dump($query);
+        //die("Debug");
+        DBAdapter::execSQL($query);
     }
     public static function update($id, $data)
     {
+        $sqlData = static::convertDataToSQLData($data);
+        $dynamicQueryPart = static::getQueryPartForUpdate($sqlData);
 
+        $sqlBody = "";
+        foreach($dynamicQueryPart as $pair)
+        {
+            $sqlBody .= $pair["field"]."=".$pair["value"].",";
+        }
+
+        $sqlBody = substr($sqlBody, 0, strlen($sqlBody) - 1);
+
+        $query = "
+            UPDATE ".static::$tableName."
+            SET
+            ".$sqlBody."
+            WHERE user_id = ".$id.";
+        ";
+        DBAdapter::execSQL($query);
     }
     public static function delete($id)
     {
-
+        $query = "
+            DELETE FROM ".static::$tableName."
+            WHERE ".static::$idName."=".$id.";
+        ";
+        DBAdapter::execSQL($query);
     }
 
-    protected function getSQLColumnsName()
+    /*Пошла мини-жара*/
+    /*Формат data: array(["key", "'value'"], ["key", "value"]... )*/
+    protected static function getQueryPartForCreate($data)
     {
-        $sqlColName = "";
-        $curId = 1;
-        $maxId = count($this->columnsName);
+        $result = array(
+            "fields" => "",
+            "values" => ""
+        );
 
-        foreach($this->columnsName as $item)
+        $curPairNum = 1;
+        foreach($data as $item)
         {
-            //var_dump($item);
+            $result["fields"] .= $item[0];
+            $result["values"] .= $item[1];
 
-            $sqlColName .= (string)$item.
-            ($curId != $maxId) ? "," : "";
-            $curId++;
+            if($curPairNum != count($data))
+            {
+                $result["fields"] .= ", ";
+                $result["values"] .= ", ";
+            }
+            $curPairNum++;
         }
-        return $sqlColName;
+        return $result;
+    }
+    protected static function getQueryPartForUpdate($data)
+    {
+        $result = array();
+
+        foreach($data as $item)
+        {
+            $pair = array();
+
+            $pair["field"] = $item[0];
+            $pair["value"] = $item[1];
+
+            $result []= $pair;
+        }
+
+        return $result;
+    }
+
+    public static function convertDataToSQLData($data)
+    {
+        return $data;
+    }
+    public static function convertDateToSQLDate($date)
+    {
+        extract($date);
+        $sqlDate = "$year-$month-$day";
+        return $sqlDate;
     }
 }
