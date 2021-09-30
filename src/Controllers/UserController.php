@@ -5,6 +5,8 @@ namespace Controllers;
 use Core\Router;
 use Core\View;
 use Controllers\DataController;
+use Form\Builder;
+use Form\UserForm;
 use Models\UserModel;
 use Validator\Validator;
 
@@ -76,7 +78,6 @@ class UserController extends DataController
             }
         }
         
-
         $result["data"] = $userData;
         $result["errors"] = $errors;
 
@@ -85,6 +86,36 @@ class UserController extends DataController
 
     public function editOrCreate()
     {
+        //Create
+        $form = new UserForm();
+        $form->setModel(UserModel::class);
+        //$form->loadFromModel(0);
+        if($form->isValid())
+        {
+            $form->save($_POST);
+            // redirect 
+        }        
+        $form->render();
+
+        return;
+
+        //Edit&Create
+        $form = new UserForm();
+
+        $form->setModel(UserModel::class);
+        $form->loadFromModel("ID_2367376342");
+
+        if ($form->isValid()) {
+            $form->save();
+            // redirect
+        }
+        $form->render();
+
+
+
+        //
+
+        /*
         $result = parent::baseEditOrCreate("users", "editUserSubmit");
 
         $vararr = $result["vararr"];
@@ -96,7 +127,7 @@ class UserController extends DataController
         }
 
         $output = View::render("editUser", $vararr);
-        echo $output;
+        echo $output;*/
     }
 
     public function delete()
