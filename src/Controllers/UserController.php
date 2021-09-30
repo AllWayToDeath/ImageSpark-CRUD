@@ -92,7 +92,7 @@ class UserController extends DataController
         //$form->loadFromModel(0);
         if($form->isValid())
         {
-            $form->save($_POST);
+            $form->save(0);
             // redirect 
         }        
         $form->render();

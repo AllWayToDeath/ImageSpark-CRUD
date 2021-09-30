@@ -55,18 +55,33 @@ class DBModel
     
     public static function create($data)
     {
+        // echo "<br>Data: ";
+        // var_dump($data);
+
         $sqlData = static::convertDataToSQLData($data);
         /*TODO: Переделать с использованием подготовленных запросов*/
         $dynamicQueryPart = static::getQueryPartForCreate($sqlData);
 
         $query = "
-            INSERT INTO ".self::$tableName."
+            INSERT INTO ".static::$tableName."
             (".$dynamicQueryPart["fields"].")
             VALUES
             (".$dynamicQueryPart["values"].")
         ";
+
+        // echo "<br>Query: ";
+        // var_dump($query);
+        // die("DBModel::Create");
+
         DBAdapter::execSQL($query);
+        
+        $inst = DBAdapter::getInstance();
+        $conn = $inst->getConnection();
+        $err = mysqli_error($conn);
+
+        // var_dump($err);
     }
+
     public static function update($id, $data)
     {
         $sqlData = static::convertDataToSQLData($data);
@@ -88,6 +103,7 @@ class DBModel
         ";
         DBAdapter::execSQL($query);
     }
+
     public static function delete($id)
     {
         $query = "
@@ -144,8 +160,19 @@ class DBModel
     }
     public static function convertDateToSQLDate($date)
     {
-        extract($date);
-        $sqlDate = "$year-$month-$day";
+        $sqlDate = "";
+
+        if(is_array($date))
+        {
+            extract($date);
+            $sqlDate = "$year-$month-$day";
+        }
+        else
+        {
+            $sqlDate = (string)$date;
+        }
+
+        
         return $sqlDate;
     }
 }
