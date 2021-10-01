@@ -8,7 +8,9 @@ use Form\Item\CBox;
 
 class Builder
 {
-
+    public const ELEMENTNAME_TEXT = 'text';
+    public const ELEMENTNAME_DATE = 'date';
+    public const ELEMENTNAME_CBOX = 'cbox';
     public function __construct()
     {
         $this->init();
@@ -25,23 +27,18 @@ class Builder
         
         switch($type)
         {
-            case 'text':
+            case self::ELEMENTNAME_TEXT:
                 $this->elements[] = new Text($name, $default, $label,  $validationFunction);
                 break;
-            case 'date':
+
+            case self::ELEMENTNAME_DATE:
                 $this->elements[] = new Date($name, $default, $label,  $validationFunction);
                 break;
-            case 'cbox':
+                
+            case self::ELEMENTNAME_CBOX:
                 $this->elements[] = new CBox($name, $default, $label,  $validationFunction);
                 break;
         }
-
-        /*
-        if ($type == 'text')
-        {
-            $this->elements[] = new Text($name, $default, $label,  $validationFunction );
-        }
-        */
     }
 
     protected $model;
@@ -77,14 +74,15 @@ class Builder
 
     public function isValid()
     {
+        $validStatus = true;
         foreach ($this->elements as $element)
         {
             if (!$element->isValid())
             {
-                return false;
+                $validStatus = false;
             }
         }
-        return true;
+        return $validStatus;
     }
 
     protected $actionPath;

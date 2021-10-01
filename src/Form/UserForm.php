@@ -9,20 +9,29 @@ class UserForm extends Builder
     protected function init()
     {
         //Плохо-код
-        $simpleValidate = function ($value) 
+        $simpleValidate = function ($value, $name) 
         { 
             if (empty($value))
             {
-                return false;
+                return "$name is empty";
             }
-            return true;
+            return null;
+        };
+        $validateFiveSymbolMore = function ($value, $name) 
+        { 
+            $lenLimit = 5;
+            if (strlen($value) < $lenLimit)
+            {
+                return "$name has few $lenLimit symbols";
+            }
+            return null;
         };
 
-        $this->add("text", "login", "LOGIN", null, $simpleValidate);
-        $this->add("text", "fname", "FNAME", null, $simpleValidate);
-        $this->add("text", "lname", "LNAME", null, $simpleValidate);
-        $this->add("date", "bday", "BDAY", null, $simpleValidate);
-        $this->add("cbox", "active", "ACTIVE", null, function($v){return true;});
+        $this->add(self::ELEMENTNAME_TEXT, "login", "LOGIN", null, [$simpleValidate, $validateFiveSymbolMore]);
+        $this->add(self::ELEMENTNAME_TEXT, "fname", "FNAME", null, [$simpleValidate]);
+        $this->add(self::ELEMENTNAME_TEXT, "lname", "LNAME", null, [$simpleValidate]);
+        $this->add(self::ELEMENTNAME_DATE, "bday", "BDAY", null, [$simpleValidate]);
+        $this->add(self::ELEMENTNAME_CBOX, "active", "ACTIVE", null, [function($v){return true;}]);
 
         $this->setModel(UserModel::class);
     }
@@ -45,8 +54,8 @@ class UserForm extends Builder
         if($id == null or $id == 0)
         {
             die("Try Create");
-            $this->model::create($data);
 
+            $this->model::create($data);
             return true;
         }
         if($this->isSubmitted())

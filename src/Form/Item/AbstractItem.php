@@ -7,8 +7,9 @@ use Core\Router;
 class AbstractItem {
     protected $value;
     protected $name;
-    protected $validationFunction;
+    protected $validationFunction = array();
     protected $template = '';
+    protected $errors = array();
     
     public function __construct($name, $default = null, $label = null,  $validationFunction = null) 
     {
@@ -20,15 +21,24 @@ class AbstractItem {
     {
         if(isset($_POST[$this->name]))
         {
-            $this->value = $_POST[$this->name];
+            $this->setValue($_POST[$this->name]);
         }
 
-        $f = $this->validationFunction;
-        if($f)
+        foreach($this->validationFunction as $func)
         {
-            return $f($this->getValue());
+            if(!$func) 
+            {
+                continue;
+            }
+
+            $error = $func($this->getValue(), $this->getName());
+            if($error != null)
+            {
+                $this->errors []= $error;
+            }
         }
-        return true;
+
+        return !count($this->errors);
     }
 
     public function getName()
