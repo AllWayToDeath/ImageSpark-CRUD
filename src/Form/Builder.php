@@ -52,26 +52,27 @@ class Builder
     }
 
     public function loadFromModel($id)
-    {
+    { 
         if($id < 1)
         {
             return;
         }
         $data = $this->model::getByID($id);
-        var_dump($data);
         foreach($this->elements as $element)
         {
             $elementName = $element->getName();
             if(isset($data[$elementName]))
             {
-                $element->setValue($data[$elementName]);
+                $value = $data[$elementName];
+                $element->setValue($value);
             }
         }
     }
 
     public function isSubmitted()
     {
-        return !!count($_POST);
+        //return !!count($_POST);
+        return isset($_POST["submit"]);
     }
 
     public function isValid()
@@ -85,6 +86,9 @@ class Builder
         }
         return true;
     }
+
+    protected $actionPath;
+    protected $backPath;
 
     public function render()
     {

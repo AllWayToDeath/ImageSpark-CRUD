@@ -38,8 +38,12 @@ class AbstractItem {
 
     public function getValue()
     {
-        $this->value = Router::getInstance()->getVar($this->name);
+        //$this->setValue(Router::getInstance()->getVar($this->name));
         return $this->value;
+    }
+    public function setValue($value)
+    {
+        $this->value = $value;
     }
 
     public function render()

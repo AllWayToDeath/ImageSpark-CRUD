@@ -27,6 +27,9 @@ class UserForm extends Builder
         $this->setModel(UserModel::class);
     }
 
+    protected $actionPath = "/edit/user";
+    protected $backPath = "/users";
+
     public function save($id = null)
     {
         $data = array();
@@ -39,12 +42,18 @@ class UserForm extends Builder
             $data[$name] = $value;
         }
 
-        // echo "<br>UserForm: ";
-        // var_dump("UserForm::Save");
-
         if($id == null or $id == 0)
         {
+            die("Try Create");
             $this->model::create($data);
+
+            return true;
         }
+        if($this->isSubmitted())
+        {   
+            $this->model::update($id, $data);
+            return true;
+        }
+        return false;
     }
 }

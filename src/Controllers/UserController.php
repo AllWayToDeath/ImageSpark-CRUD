@@ -86,48 +86,23 @@ class UserController extends DataController
 
     public function editOrCreate()
     {
-        //Create
-        $form = new UserForm();
-        $form->setModel(UserModel::class);
-        //$form->loadFromModel(0);
-        if($form->isValid())
-        {
-            $form->save(0);
-            // redirect 
-        }        
-        $form->render();
-
-        return;
+        $id = $_GET["id"];
 
         //Edit&Create
         $form = new UserForm();
 
         $form->setModel(UserModel::class);
-        $form->loadFromModel("ID_2367376342");
+        $form->loadFromModel($id);
 
-        if ($form->isValid()) {
-            $form->save();
-            // redirect
+        if($form->isValid())
+        {
+            $canRedirect = $form->save($id);
+        }
+        if($canRedirect)
+        {
+            header("Location: /users");
         }
         $form->render();
-
-
-
-        //
-
-        /*
-        $result = parent::baseEditOrCreate("users", "editUserSubmit");
-
-        $vararr = $result["vararr"];
-        $vararr["errors"] = $result["errors"];
-
-        if(isset($result["data"]))
-        {
-            $vararr["userData"] = $result["data"];
-        }
-
-        $output = View::render("editUser", $vararr);
-        echo $output;*/
     }
 
     public function delete()
