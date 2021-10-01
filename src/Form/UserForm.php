@@ -28,41 +28,16 @@ class UserForm extends Builder
         };
 
         $this->add(self::ELEMENTNAME_TEXT, "login", "LOGIN", null, [$simpleValidate, $validateFiveSymbolMore]);
-        $this->add(self::ELEMENTNAME_TEXT, "fname", "FNAME", null, [$simpleValidate]);
-        $this->add(self::ELEMENTNAME_TEXT, "lname", "LNAME", null, [$simpleValidate]);
-        $this->add(self::ELEMENTNAME_DATE, "bday", "BDAY", null, [$simpleValidate]);
-        $this->add(self::ELEMENTNAME_CBOX, "active", "ACTIVE", null, [function($v){return true;}]);
+        // $this->add(self::ELEMENTNAME_TEXT, "fname", "FNAME", null, [$simpleValidate]);
+        // $this->add(self::ELEMENTNAME_TEXT, "lname", "LNAME", null, [$simpleValidate]);
+        // $this->add(self::ELEMENTNAME_DATE, "bday", "BDAY", null, [$simpleValidate]);
+        // $this->add(self::ELEMENTNAME_CBOX, "active", "ACTIVE", null, [function($v){return true;}]);
+        $this->add(self::ELEMENTNAME_IMG, "image", "IMG", null, [function($v){return null;}]);
 
-        $this->setModel(UserModel::class);
+
+        //$this->setModel(UserModel::class);
     }
 
     protected $actionPath = "/edit/user";
     protected $backPath = "/users";
-
-    public function save($id = null)
-    {
-        $data = array();
-
-        foreach($this->elements as $item)
-        {   
-            $name  = $item->getName();
-            $value = $item->getValue();
-
-            $data[$name] = $value;
-        }
-
-        if($id == null or $id == 0)
-        {
-            die("Try Create");
-
-            $this->model::create($data);
-            return true;
-        }
-        if($this->isSubmitted())
-        {   
-            $this->model::update($id, $data);
-            return true;
-        }
-        return false;
-    }
 }

@@ -19,10 +19,8 @@ class AbstractItem {
 
     public function isValid()
     {
-        if(isset($_POST[$this->name]))
-        {
-            $this->setValue($_POST[$this->name]);
-        }
+        $value = Router::getVar($this->name);
+        $this->setValue($value);
 
         foreach($this->validationFunction as $func)
         {

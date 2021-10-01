@@ -2,7 +2,9 @@
 
 namespace Form\Item;
 
+use Form\Builder;
+
 class CBox extends AbstractItem
 {
-    protected $template = 'cbox';
+    protected $template = Builder::ELEMENTNAME_DATE;
 }

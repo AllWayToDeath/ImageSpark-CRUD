@@ -5,12 +5,16 @@ namespace Form;
 use Form\Item\Text;
 use Form\Item\Date;
 use Form\Item\CBox;
+use Form\Item\Image;
 
 class Builder
 {
     public const ELEMENTNAME_TEXT = 'text';
     public const ELEMENTNAME_DATE = 'date';
     public const ELEMENTNAME_CBOX = 'cbox';
+    public const ELEMENTNAME_IMG  = 'img';
+
+
     public function __construct()
     {
         $this->init();
@@ -34,9 +38,13 @@ class Builder
             case self::ELEMENTNAME_DATE:
                 $this->elements[] = new Date($name, $default, $label,  $validationFunction);
                 break;
-                
+
             case self::ELEMENTNAME_CBOX:
                 $this->elements[] = new CBox($name, $default, $label,  $validationFunction);
+                break;
+
+            case self::ELEMENTNAME_CBOX:
+                $this->elements[] = new Image($name, $default, $label,  $validationFunction);
                 break;
         }
     }
@@ -74,6 +82,8 @@ class Builder
 
     public function isValid()
     {
+        var_dump("<pre>",$_POST);
+
         $validStatus = true;
         foreach ($this->elements as $element)
         {
@@ -83,6 +93,35 @@ class Builder
             }
         }
         return $validStatus;
+    }
+
+    public function save($id = null)
+    {
+        $data = array();
+
+        foreach($this->elements as $item)
+        {   
+            $name  = $item->getName();
+            $value = $item->getValue();
+
+            $data[$name] = $value;
+        }
+
+        if($id == null or $id == 0)
+        {
+            die("Try Create");
+
+            $this->model::create($data);
+            return true;
+        }
+        if($this->isSubmitted())
+        {   
+            die("Try Update");
+
+            $this->model::update($id, $data);
+            return true;
+        }
+        return false;
     }
 
     protected $actionPath;
